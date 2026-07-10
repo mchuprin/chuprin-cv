@@ -1,0 +1,40 @@
+.Navlink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  color: var(--muted-foreground);
+  text-shadow: none;
+  padding: 0.7rem 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    color: var(--accent);
+    text-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  &.active {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    border-left-color: var(--primary);
+    color: var(--primary);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--primary) 60%, transparent);
+  }
+}
+
+.indicator {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+
+  .active & {
+    opacity: 1;
+  }
+}

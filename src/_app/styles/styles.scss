@@ -1,0 +1,63 @@
+@use "./variables" as *;
+@use "./reset";
+
+* {
+    font-family: var(--font-jetbrains-mono), monospace;
+    color: white;
+}
+
+body {
+    height: 100vh;
+}
+
+// ── Scanlines overlay ────────────────────────────────────────────────────────
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.14) 2px,
+        rgba(0, 0, 0, 0.14) 4px
+    );
+}
+
+// ── Blink cursor ─────────────────────────────────────────────────────────────
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #00d9ff;
+    box-shadow: 0 0 8px #00d9ff, 0 0 16px #00d9ff88;
+    vertical-align: text-bottom;
+    animation: blink 1s step-start infinite;
+}
+
+// ── Scrollbar ────────────────────────────────────────────────────────────────
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 217, 255, 0.2);
+    border-radius: 2px;
+
+    &:hover {
+        background: rgba(0, 217, 255, 0.4);
+    }
+}

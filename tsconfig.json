@@ -19,7 +19,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
+      "@_app/*": ["./src/_app/*"],
+      "@_pages/*": ["./src/_pages/*"],
+      "@_widgets/*": ["./src/widgets/*"],
+      "@_features/*": ["./src/features/*"],
+      "@_entities/*": ["./src/entities/*"],
+      "@_shared/*": ["./src/shared/*"]
     }
   },
   "include": [

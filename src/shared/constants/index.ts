@@ -1,0 +1,1 @@
+export type AvailablesSections = 'whoami' | 'projects' | 'experience' | 'skills' | 'contact' | 'help'

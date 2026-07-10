@@ -1,0 +1,1 @@
+export { TerminalInput as default } from './ui/TerminalInput'
