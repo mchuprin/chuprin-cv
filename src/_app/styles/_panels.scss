@@ -1,0 +1,4 @@
+@mixin panel($border-side: bottom) {
+  background: var(--panel-bg);
+  border-#{$border-side}: 1px solid var(--panel-border);
+}

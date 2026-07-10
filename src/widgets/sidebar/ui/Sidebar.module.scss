@@ -1,0 +1,35 @@
+@use '@_app/styles/panels' as *;
+
+.sidebar {
+    @include panel(right);
+    width: 220px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 0;
+}
+
+.navigation {
+    @include panel(bottom);
+    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    @include panel(bottom);
+    color: var(--muted-foreground);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+}
+
+.nav {
+    flex: 1;
+}
+
+.hints {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.62rem;
+    color: var(--muted-foreground);
+    line-height: 1.9;
+}

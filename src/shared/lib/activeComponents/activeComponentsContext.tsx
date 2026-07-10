@@ -1,19 +1,26 @@
 'use client'
-import { AvailablesSections } from '@_shared/constants'
+import { AvailablesCommands } from '@/shared/types'
 import { createContext, ReactNode, useContext, useState } from 'react'
 
+export interface Section {
+    id: string
+    name: AvailablesCommands
+}
+
 interface ActiveComponentsContextType {
-    sections: AvailablesSections[]
-    lastSection: AvailablesSections | ''
-    addSection: (section: AvailablesSections) => void
-    setLastSection: (section: AvailablesSections) => void
+    sections: Section[]
+    lastSection: AvailablesCommands | ''
+    addSection: (name: AvailablesCommands) => void
+    setLastSection: (section: AvailablesCommands) => void
+    clear: () => void
 }
 
 const ActiveComponentsContext = createContext<ActiveComponentsContextType>({
     sections: [],
     lastSection: '',
     addSection: () => {},
-    setLastSection: () => {}
+    setLastSection: () => {},
+    clear: () => {}
 })
 
 interface ActiveComponentsProviderProps {
@@ -21,17 +28,22 @@ interface ActiveComponentsProviderProps {
 }
 
 export function ActiveComponentsProvider({ children }: ActiveComponentsProviderProps) {
-    const [sections, setSections] = useState<AvailablesSections[]>(['help'])
-    const [lastSection, setLastSection] = useState<AvailablesSections | ''>('')
+    const [sections, setSections] = useState<Section[]>([{ id: crypto.randomUUID(), name: 'help' }])
+    const [lastSection, setLastSection] = useState<AvailablesCommands | ''>('')
 
-    const addSection = (section: AvailablesSections) => {
-        setSections((prev) => [...prev, section])
-        setLastSection(section)
+    const addSection = (name: AvailablesCommands) => {
+        setSections((prev) => [...prev, { id: crypto.randomUUID(), name }])
+        setLastSection(name)
+    }
+    
+    const clear = () => {
+        setLastSection('')
+        setSections([{ id: crypto.randomUUID(), name: 'help' }])
     }
 
     return (
         <ActiveComponentsContext.Provider
-            value={{ sections, lastSection, addSection, setLastSection }}
+            value={{ sections, lastSection, addSection, setLastSection, clear }}
         >
             {children}
         </ActiveComponentsContext.Provider>

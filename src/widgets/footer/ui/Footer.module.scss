@@ -1,3 +1,13 @@
+@use '@_app/styles/panels' as *;
+
 .footer {
-    width: 100%;
+  @include panel(top);
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  font-size: 0.62rem;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
 }

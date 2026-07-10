@@ -3,7 +3,7 @@ import Projects from '@_entities/projects'
 import Skills from '@_entities/skills'
 import Whoami from '@_entities/whoami'
 import Experience from '@_entities/experience'
-import { AvailablesSections } from '@/shared/constants'
+import { AvailablesCommands } from '@/shared/types'
 import { useActiveComponents } from '@/shared/lib/activeComponents'
 import { ComponentType } from 'react'
 import TerminalInput from '@_widgets/terminal-input'
@@ -13,7 +13,7 @@ interface MainPageProps {
     className?: string
 }
 
-const componentsMap: Record<AvailablesSections, ComponentType> = {
+const componentsMap: Record<AvailablesCommands, ComponentType> = {
     whoami: Whoami,
     projects: Projects,
     experience: Experience,
@@ -28,9 +28,9 @@ export const MainPage = (props: MainPageProps) => {
     return (
         <div className={styles.main}>
             <div className={styles.sections}>
-                {sections.map((name) => {
-                    const Component = componentsMap[name]
-                    return <Component key={name} />
+                {sections.map((item) => {
+                    const Component = componentsMap[item.name]
+                    return <Component key={item.id} />
                 })}
             </div>
             <TerminalInput />
