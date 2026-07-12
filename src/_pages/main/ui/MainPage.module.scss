@@ -5,5 +5,11 @@
 }
 
 .sections {
+    padding: 0.875rem 2.25rem;
     flex: 1;
+    overflow-y: auto;
+
+    & > *:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }

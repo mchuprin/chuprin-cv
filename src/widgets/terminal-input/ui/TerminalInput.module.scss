@@ -9,24 +9,57 @@
     flex-shrink: 0;
 }
 
-.prompt {
-    color: var(--primary);
-    font-weight: 700;
-    text-shadow: 0 0 10px color-mix(in srgb, var(--primary) 50%, transparent);
-    font-size: 1rem;
+.inputWrapper {
+    position: relative;
+    flex: 1;
+}
+
+.inputDisplay {
+    font-size: 0.88rem;
+    color: var(--foreground);
+    white-space: pre;
+    pointer-events: none;
+}
+
+.measure {
+    position: absolute;
+    visibility: hidden;
+    white-space: pre;
+    font-size: 0.88rem;
+    pointer-events: none;
+}
+
+.placeholder {
+    color: var(--muted-foreground);
+}
+
+.caret {
+    position: absolute;
+    left: var(--caret-left);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1ch;
+    height: 1.3em;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
+    animation: blink 1s step-end infinite;
+    pointer-events: none;
 }
 
 .input {
-    flex: 1;
-    background: none;
-    border: none;
-    color: var(--foreground);
-    font-family: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     font-size: 0.88rem;
-    outline: none;
-    caret-color: var(--accent);
+    caret-color: transparent;
+    cursor: text;
 }
 
-.input::placeholder {
-    color: var(--muted-foreground);
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }

@@ -9,3 +9,70 @@
     gap: 1rem;
     flex-shrink: 0;
 }
+
+.trafficLights {
+    display: flex;
+    gap: 0.45rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dot_red {
+    background-color: var(--dot-red);
+}
+
+.dot_yellow {
+    background-color: var(--dot-yellow);
+}
+
+.dot_green {
+    background-color: var(--dot-green);
+}
+
+.logo {
+    color: var(--primary);
+    font-size: 0.28rem;
+    font-family: monospace
+    // line-height: auto;
+    // text-shadow: 0 0 8px color-mix(in srgb, var(--primary) 50%, transparent),
+    //              0 0 16px color-mix(in srgb, var(--primary) 30%, transparent);
+    // margin: 0;
+    // user-select: none;
+    // flex-shrink: 0;
+}
+
+.right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.paletteBtn {
+    background: none;
+    border: 1px solid var(--subtle-border);
+    color: var(--muted-foreground);
+    padding: 0.3rem 0.75rem;
+    font-family: inherit;
+    font-size: 0.68rem;
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.paletteLabel {
+    color: var(--label);
+}
+
+.time {
+    color: var(--label);
+    font-size: 0.65rem;
+}

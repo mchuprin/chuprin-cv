@@ -21,7 +21,7 @@ export const Sidebar = (props: SidebarProps) => {
 
     return (
         <aside className={styles.sidebar}>
-            <h1 className={styles.title}>Navigation</h1>
+            <h1 className={styles.title}>NAVIGATION</h1>
             <div className={styles.navigation}>
                 {sections.map((section) => (
                     <Navlink

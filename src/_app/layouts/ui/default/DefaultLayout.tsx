@@ -11,6 +11,8 @@ interface DefaultLayoutProps {
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
     return (
         <div className={styles.default}>
+            <div className="viewport-glare" />
+            <div className="scanlines" />
             <Header />
             <div className={styles.content}>
                 <Sidebar />
