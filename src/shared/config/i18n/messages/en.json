@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "whoami": "Whoami",
+        "projects": "Projects",
+        "skills": "Skills",
+        "experience": "Experience",
+        "contact": "Contact",
+        "help": "Help"
+    },
+    "terminal": {
+        "placeholder": "type a command...",
+        "unknown": "Unknown command"
+    },
+    "whoami": {
+        "name": "Name",
+        "fullname": "Maksim Chuprin",
+        "role": "Role",
+        "roleValue": "Frontend Developer | 6+ | Vue / React / TypeScript",
+        "location": "Location",
+        "status": "Status",
+        "available": "Available for hire",
+        "english": "English",
+        "bio": "Developing and optimizing web applications. Specialized in refactoring legacy projects, building architecture, and implementing CI/CD. Actively using AI tools — Claude Code, Cursor, Deep Seek."
+    },
+    "skills": {
+        "categories": {
+            "Frontend": "Frontend",
+            "UI": "UI",
+            "Build & CI": "Build & CI",
+            "Quality": "Quality",
+            "AI Tools": "AI Tools"
+        }
+    },
+    "help": {
+        "title": "Available commands",
+        "commands": {
+            "whoami": "About me",
+            "projects": "View my work",
+            "skills": "Technologies (neofetch style)",
+            "experience": "Work history",
+            "contact": "Get in touch",
+            "help": "Show available commands",
+            "clear": "Clear terminal",
+            "sudo hire-me": "Open contact form"
+        }
+    }
+}

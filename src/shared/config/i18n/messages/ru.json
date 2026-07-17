@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "whoami": "Обо мне",
+        "projects": "Проекты",
+        "skills": "Навыки",
+        "experience": "Опыт",
+        "contact": "Контакты",
+        "help": "Помощь"
+    },
+    "terminal": {
+        "placeholder": "введите команду...",
+        "unknown": "Неизвестная команда"
+    },
+    "whoami": {
+        "name": "Имя",
+        "fullname": "Максим Чуприн",
+        "role": "Роль",
+        "roleValue": "Frontend Developer | 6+ | Vue / React / TypeScript",
+        "location": "Локация",
+        "status": "Статус",
+        "available": "Открыт для найма",
+        "english": "Английский",
+        "bio": "Разрабатываю и оптимизирую веб-приложения. Специализируюсь на рефакторинге legacy-проектов, построении архитектуры и внедрении CI/CD. Активно использую AI-инструменты в работе — Claude Code, Cursor, Deep Seek."
+    },
+    "skills": {
+        "categories": {
+            "Frontend": "Frontend",
+            "UI": "UI",
+            "Build & CI": "Build & CI",
+            "Quality": "Quality",
+            "AI Tools": "AI Tools"
+        }
+    },
+    "help": {
+        "title": "Доступные команды",
+        "commands": {
+            "whoami": "Обо мне",
+            "projects": "Мои проекты",
+            "skills": "Технологии (стиль neofetch)",
+            "experience": "Опыт работы",
+            "contact": "Связаться",
+            "help": "Показать доступные команды",
+            "clear": "Очистить терминал",
+            "sudo hire-me": "Открыть форму найма"
+        }
+    }
+}

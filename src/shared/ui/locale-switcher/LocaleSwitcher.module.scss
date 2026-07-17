@@ -1,0 +1,21 @@
+.btn {
+    background: none;
+    border: 1px solid var(--subtle-border);
+    color: var(--muted-foreground);
+    padding: 0.3rem 0.75rem;
+    font-family: inherit;
+    font-size: 0.68rem;
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.label {
+    color: inherit;
+}

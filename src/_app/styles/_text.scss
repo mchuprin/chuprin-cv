@@ -1,0 +1,61 @@
+// ── Terminal content text utility classes ──────────────────────────────────────
+// Self-sufficient classes for consistent text rendering across all commands.
+// Usage: <span className="t-label">Name</span>
+
+// ── Label (left side) ─────────────────────────────────────────────────────────
+// Blue text for field names: Name, Role, Location, Frontend, whoami, etc.
+.t-label {
+    color: var(--accent);
+    min-width: 10ch;
+    font-weight: 600;
+    text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+// ── Separator ─────────────────────────────────────────────────────────────────
+// Colon between label and value: "Name : Value"
+.t-sep {
+    color: var(--muted-foreground);
+}
+
+// ── Value (right side) ────────────────────────────────────────────────────────
+// White text for values: Maksim Chuprin, Remote, React, Next.js, etc.
+.t-value {
+    color: var(--foreground);
+    font-size: 0.85rem;
+}
+
+// ── Status ────────────────────────────────────────────────────────────────────
+// Green glowing text: "● Available for hire"
+.t-status {
+    color: #39ff14;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+}
+
+// ── Command name (Help) ──────────────────────────────────────────────────────
+// Pink text for command names: whoami, projects, skills, etc.
+.t-cmd {
+    color: var(--primary);
+    min-width: 16ch;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--primary) 50%, transparent);
+}
+
+// ── Muted / description text ─────────────────────────────────────────────────
+// Dimmed text for descriptions, bios, secondary info
+.t-muted {
+    color: var(--muted-foreground);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+// ── Row layout ────────────────────────────────────────────────────────────────
+// Flex row for label : value pairs
+.t-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+// ── Content container ────────────────────────────────────────────────────────
+// Base container for command content with consistent line-height
+.t-content {
+    line-height: 2;
+}

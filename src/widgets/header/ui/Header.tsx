@@ -1,4 +1,5 @@
 import { classNames } from '@_shared/lib/classNames/classNames'
+import LocaleSwitcher from '@_shared/ui/locale-switcher'
 import styles from './Header.module.scss'
 
 const ASCII_LOGO = ` 
@@ -23,6 +24,7 @@ export const Header = ({ className }: HeaderProps) => {
             </div>
             <pre className={styles.logo}>{ASCII_LOGO}</pre>
             <div className={styles.right}>
+                <LocaleSwitcher />
                 <button className={styles.paletteBtn}>
                     <span>⌘K</span>
                     <span className={styles.paletteLabel}>Command palette</span>

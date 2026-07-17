@@ -1,5 +1,6 @@
 @use "./variables" as *;
 @use "./reset";
+@use "./text";
 
 * {
     font-family: var(--font-jetbrains-mono), monospace;
@@ -33,34 +34,12 @@ body {
     inset: 0;
     pointer-events: none;
     z-index: 9998;
-
-    // Vignette — darkened corners
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-            ellipse at center,
-            transparent 50%,
-            rgba(0, 0, 0, 0.45) 100%
-        );
-    }
-
-    // Top-left glare streak
-    &::after {
-        content: "";
-        position: absolute;
-        top: -20%;
-        left: -10%;
-        width: 60%;
-        height: 60%;
-        background: radial-gradient(
-            ellipse at center,
-            rgba(0, 245, 255, 0.04) 0%,
-            transparent 70%
-        );
-        transform: rotate(-20deg);
-    }
+    background: radial-gradient(
+        ellipse at 50% 50%,
+        rgba(0, 245, 255, 0.08) 0%,
+        rgba(0, 245, 255, 0.03) 40%,
+        transparent 70%
+    );
 }
 
 .scanlines {
@@ -71,10 +50,19 @@ body {
     background: repeating-linear-gradient(
         0deg,
         transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.14) 2px,
-        rgba(0, 0, 0, 0.14) 4px
+        transparent 4px,
+        rgba(0, 0, 0, 0.14) 4px,
+        rgba(0, 0, 0, 0.14) 8px
     );
+    animation: scanlines-jitter 0.15s steps(2) infinite;
+}
+
+@keyframes scanlines-jitter {
+    0%   { background-position: 0 0; opacity: 1; }
+    25%  { background-position: 0 3px; opacity: 0.85; }
+    50%  { background-position: 0 -1px; opacity: 0.95; }
+    75%  { background-position: 0 1px; opacity: 0.88; }
+    100% { background-position: 0 0; opacity: 1; }
 }
 
 // ── Blink cursor ─────────────────────────────────────────────────────────────
