@@ -1,2 +1,1 @@
-export type AvailablesCommands =
-    'whoami' | 'projects' | 'experience' | 'skills' | 'contact' | 'help'
+export type { AvailablesCommands } from '../model/types'

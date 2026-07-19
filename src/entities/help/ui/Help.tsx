@@ -1,21 +1,11 @@
 import { useTranslations } from 'next-intl'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import CommandLine from '@_shared/ui/command-line'
+import { COMMAND_KEYS } from '../model/constants'
 
 interface HelpProps {
     className?: string
 }
-
-const COMMAND_KEYS = [
-    'whoami',
-    'projects',
-    'skills',
-    'experience',
-    'contact',
-    'help',
-    'clear',
-    'sudo hire-me',
-] as const
 
 export const Help = ({ className }: HelpProps) => {
     const t = useTranslations('help')

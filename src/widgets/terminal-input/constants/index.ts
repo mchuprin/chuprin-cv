@@ -1,6 +1,6 @@
-import { AvailablesCommands } from '@_shared/types'
+import { CommandPattern } from '../model/types'
 
-export const commandPatterns: { pattern: RegExp; name: AvailablesCommands }[] = [
+export const commandPatterns: CommandPattern[] = [
     { pattern: /^whoami$/, name: 'whoami' },
     { pattern: /^projects$/, name: 'projects' },
     { pattern: /^(skills|neofetch)$/, name: 'skills' },
