@@ -1,5 +1,6 @@
 import { classNames } from '@_shared/lib/classNames/classNames'
-import LocaleSwitcher from '@_shared/ui/locale-switcher'
+import { LocaleSwitcher } from '@_features/locale-switcher'
+import { Button } from '@_shared/ui/button'
 import styles from './Header.module.scss'
 
 const ASCII_LOGO = ` 
@@ -25,12 +26,21 @@ export const Header = ({ className }: HeaderProps) => {
             <pre className={styles.logo}>{ASCII_LOGO}</pre>
             <div className={styles.right}>
                 <LocaleSwitcher />
-                <button className={styles.paletteBtn}>
+                <Button>
                     <span>⌘K</span>
                     <span className={styles.paletteLabel}>Command palette</span>
-                </button>
+                </Button>
                 <div className={styles.time}>
-                    {new Date().toISOString().slice(0, 19).replace('T', ' ')} UTC
+                    {new Date().toLocaleString('en-GB', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false,
+                        timeZoneName: 'short'
+                    }).replace(/\//g, '-')}
                 </div>
             </div>
         </header>

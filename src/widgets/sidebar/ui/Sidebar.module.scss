@@ -9,15 +9,16 @@
 }
 
 .navigation {
-    @include panel(bottom);
-    padding-bottom: 1rem;
-    margin-bottom: 0.5rem;
+    // @include panel(bottom);
+    // padding-bottom: 1rem;
+    margin-bottom: auto;
+    // margin-top: auto;
 }
 
 .title {
     @include panel(bottom);
     color: var(--muted-foreground);
-    font-size:0.7rem;
+    font-size: 0.7rem;
     letter-spacing: 0.15em;
     padding: 1rem 0 1rem 0.5rem;
 }
@@ -27,9 +28,12 @@
 }
 
 .hints {
+    @include panel(top);
     padding: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
     font-size: 0.62rem;
-    color: var(--muted-foreground);
     line-height: 1.9;
+}
+
+.hintKey {
+    color: var(--accent);
 }

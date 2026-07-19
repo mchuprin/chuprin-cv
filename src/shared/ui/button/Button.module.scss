@@ -9,13 +9,9 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
-}
 
-.btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.label {
-    color: inherit;
+    &:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
 }

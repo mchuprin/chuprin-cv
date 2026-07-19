@@ -5,11 +5,43 @@
 }
 
 .sections {
-    padding: 0.875rem 2.25rem;
+    padding: 0.875rem 2.25rem 0 2.25rem;
     flex: 1;
     overflow-y: auto;
 
     & > *:not(:last-child) {
         margin-bottom: 1rem;
+    }
+}
+
+.sectionItem {
+    animation: terminalGlitch 0.4s ease-out;
+}
+
+@keyframes terminalGlitch {
+    0% {
+        opacity: 0;
+        transform: translateX(-2px);
+        filter: blur(1px);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateX(2px);
+        filter: blur(0);
+    }
+    40% {
+        opacity: 0.4;
+        transform: translateX(-1px);
+        filter: blur(0.5px);
+    }
+    60% {
+        opacity: 0.9;
+        transform: translateX(1px);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
     }
 }

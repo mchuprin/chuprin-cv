@@ -1,7 +1,8 @@
 'use client'
+import { useTranslations } from 'next-intl'
 import Navlink from '@_shared/ui/navlink'
-import { useActiveComponents } from '@/shared/lib/activeComponents'
-import { AvailablesCommands } from '@/shared/types'
+import { useActiveComponents } from '@_shared/lib/activeComponents'
+import { AvailablesCommands } from '@_shared/types'
 import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -18,6 +19,7 @@ const sections: Exclude<AvailablesCommands, 'help'>[] = [
 
 export const Sidebar = (props: SidebarProps) => {
     const { addSection, lastSection } = useActiveComponents()
+    const t = useTranslations('hints')
 
     return (
         <aside className={styles.sidebar}>
@@ -31,6 +33,10 @@ export const Sidebar = (props: SidebarProps) => {
                         onClick={() => addSection(section)}
                     />
                 ))}
+            </div>
+            <div className={styles.hints}>
+                <div><span className={styles.hintKey}>↑↓</span> — {t('history')}</div>
+                <div><span className={styles.hintKey}>clear</span> — {t('clear')}</div>
             </div>
         </aside>
     )

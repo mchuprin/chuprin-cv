@@ -19,7 +19,7 @@ export const Skills = ({ className }: SkillsProps) => {
 
     return (
         <div className={classNames('t-content', {}, [className])}>
-            <CommandLine text="neofetch --skills">
+            <CommandLine text="skills">
                 <div>
                     {SKILLS_DATA.map(({ key, items }) => (
                         <div key={key} className="t-row">

@@ -1,7 +1,7 @@
 'use client'
 import { usePathname, useRouter } from 'next/navigation'
 import { routing } from '@_shared/config/i18n/routing'
-import styles from './LocaleSwitcher.module.scss'
+import { Button } from '@_shared/ui/button'
 
 export const LocaleSwitcher = () => {
     const pathname = usePathname()
@@ -17,8 +17,8 @@ export const LocaleSwitcher = () => {
     }
 
     return (
-        <button type="button" className={styles.btn} onClick={switchLocale}>
-            <span className={styles.label}>{nextLocale.toUpperCase()}</span>
-        </button>
+        <Button type="button" onClick={switchLocale}>
+            <span>{nextLocale.toUpperCase()}</span>
+        </Button>
     )
 }

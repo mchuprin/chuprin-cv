@@ -43,5 +43,14 @@
             "clear": "Clear terminal",
             "sudo hire-me": "Open contact form"
         }
+    },
+    "hints": {
+        "history": "history",
+        "clear": "clear terminal"
+    },
+    "footer": {
+        "section": "section",
+        "enc": "enc: AES-256-GCM",
+        "connected": "CONNECTED"
     }
 }

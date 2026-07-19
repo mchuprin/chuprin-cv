@@ -39,13 +39,7 @@
 .logo {
     color: var(--primary);
     font-size: 0.28rem;
-    font-family: monospace
-    // line-height: auto;
-    // text-shadow: 0 0 8px color-mix(in srgb, var(--primary) 50%, transparent),
-    //              0 0 16px color-mix(in srgb, var(--primary) 30%, transparent);
-    // margin: 0;
-    // user-select: none;
-    // flex-shrink: 0;
+    font-family: monospace;
 }
 
 .right {
@@ -53,19 +47,6 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
-}
-
-.paletteBtn {
-    background: none;
-    border: 1px solid var(--subtle-border);
-    color: var(--muted-foreground);
-    padding: 0.3rem 0.75rem;
-    font-family: inherit;
-    font-size: 0.68rem;
-    cursor: pointer;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
 }
 
 .paletteLabel {

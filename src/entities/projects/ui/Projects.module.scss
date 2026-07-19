@@ -1,0 +1,66 @@
+.total {
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.card {
+    border: 1px solid var(--subtle-border);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    cursor: default;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(0, 245, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.4);
+        border-color: rgba(0, 245, 255, 0.25);
+    }
+}
+
+.cardHeader {
+    display: flex;
+    gap: 0.875rem;
+    margin-bottom: 0.3rem;
+    align-items: baseline;
+}
+
+.permissions {
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+}
+
+.name {
+    color: var(--primary);
+    font-weight: 600;
+    text-shadow: 0 0 8px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.meta {
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+}
+
+.status {
+    margin-left: auto;
+    font-size: 0.65rem;
+    padding: 0.05rem 0.4rem;
+    text-shadow: 0 0 6px currentColor;
+}
+
+.stars {
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+}
+
+.desc {
+    color: var(--foreground);
+    font-size: 0.8rem;
+    margin: 0;
+    line-height: 1.6;
+}
