@@ -48,6 +48,9 @@
         "history": "история",
         "clear": "очистить терминал"
     },
+    "resume": {
+        "button": "РЕЗЮМЕ.pdf"
+    },
     "footer": {
         "section": "секция",
         "enc": "enc: AES-256-GCM",

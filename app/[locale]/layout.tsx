@@ -20,7 +20,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cyberpunk CV",
+  title: "Maks Сhuprin CV",
   description: "Author: Maks Chuprin",
 };
 

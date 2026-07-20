@@ -9,9 +9,27 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    transition: all 0.2s;
 
     &:hover {
         border-color: var(--accent);
         color: var(--accent);
+    }
+}
+
+.green {
+    background: rgba(var(--green-rgb), 0.07);
+    border: 1px solid rgba(var(--green-rgb), 0.25);
+    color: var(--green);
+    padding: 0.55rem 0.875rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 8px rgba(var(--green-rgb), 0.4);
+
+    &:hover {
+        background: rgba(var(--green-rgb), 0.14);
+        box-shadow: 0 0 14px rgba(var(--green-rgb), 0.2);
+        border-color: rgba(var(--green-rgb), 0.25);
+        color: var(--green);
     }
 }

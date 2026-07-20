@@ -2,6 +2,7 @@
 import { useTranslations } from 'next-intl'
 import Navlink from '@_shared/ui/navlink'
 import { useActiveComponents } from '@/shared/lib/activeComponents'
+import { DownloadButton } from '@_entities/resume'
 import { SECTIONS } from '../model/constants'
 import styles from './Sidebar.module.scss'
 
@@ -26,9 +27,16 @@ export const Sidebar = (props: SidebarProps) => {
                     />
                 ))}
             </div>
+            <div className={styles.downloadButton}>
+                <DownloadButton />
+            </div>
             <div className={styles.hints}>
-                <div><span className={styles.hintKey}>↑↓</span> — {t('history')}</div>
-                <div><span className={styles.hintKey}>clear</span> — {t('clear')}</div>
+                <div>
+                    <span className={styles.hintKey}>↑↓</span> — {t('history')}
+                </div>
+                <div>
+                    <span className={styles.hintKey}>clear</span> — {t('clear')}
+                </div>
             </div>
         </aside>
     )

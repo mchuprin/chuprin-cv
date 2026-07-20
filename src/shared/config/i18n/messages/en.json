@@ -48,6 +48,9 @@
         "history": "history",
         "clear": "clear terminal"
     },
+    "resume": {
+        "button": "CV.pdf"
+    },
     "footer": {
         "section": "section",
         "enc": "enc: AES-256-GCM",

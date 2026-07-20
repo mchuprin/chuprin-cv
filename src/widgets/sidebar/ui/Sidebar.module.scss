@@ -37,3 +37,13 @@
 .hintKey {
     color: var(--accent);
 }
+
+.downloadButton {
+    @include panel(top);
+    padding: 1rem;
+
+    button {
+        width: 100%;
+    }
+    // margin: 0 0.5rem;
+}
