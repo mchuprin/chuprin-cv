@@ -30,6 +30,7 @@
 
 - **Terminal UI** — cyberpunk-themed interface with scanline effects, glow, and custom cursor
 - **i18n** — full Russian/English localization via `next-intl`
+- **Resume Download** — download PDF resume from sidebar (locale-aware: RU/EN)
 - **Static Export** — fully static site deployed to GitHub Pages
 - **FSD Architecture** — strict layer separation for scalable, maintainable code
 - **Responsive Design** — adapts to different screen sizes
@@ -62,6 +63,12 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+### Resume PDF
+
+Place your PDF resume files in `public/cv/`:
+- `public/cv/Максим_Чуприн_CV.pdf` — Russian version
+- `public/cv/Maksim_Chuprin_CV.pdf` — English version
+
 ## Project Structure
 
 ```
@@ -69,7 +76,7 @@ src/
 ├── _app/                  # App layer: providers, layouts, store, global styles
 ├── _pages/                # Pages layer: route components
 ├── widgets/               # UI blocks: header, sidebar, footer, terminal-input
-├── entities/              # Business entities: whoami, skills, projects, experience, help
+├── entities/              # Business entities: whoami, skills, projects, experience, help, resume
 ├── features/              # User-facing features: locale-switcher
 └── shared/                # Reusable: UI components, hooks, config, types, constants
 ```
@@ -83,7 +90,7 @@ The project follows **Feature-Sliced Design** — an architectural methodology f
 | `_app` | App-level setup: providers, global layout, Redux store, styles |
 | `_pages` | Page components mapped to routes |
 | `widgets` | Large UI blocks composing the page (header, sidebar, terminal) |
-| `entities` | Business domain entities (skills, projects, experience) |
+| `entities` | Business domain entities (skills, projects, experience, resume) |
 | `features` | User interactions (locale switching, command palette) |
 | `shared` | Cross-cutting: reusable components, utilities, config, types |
 
@@ -128,6 +135,7 @@ Base path: `/chuprin-cv`
 
 **Возможности:**
 - Двуязычность (русский/английский) через `next-intl`
+- Скачивание PDF-резюме через кнопку в сайдбаре (locale-aware)
 - Полностью статичный сайт, деплой на GitHub Pages
 - Архитектура Feature-Sliced Design с линтингом через Steiger
 - Адаптивный дизайн
@@ -137,7 +145,8 @@ Base path: `/chuprin-cv`
 ## Planned Features
 
 - [ ] `experience` — отображение опыта работы из `cv/CV.md`
-- [ ] Скачивание файла резюме через кнопку в сайдбаре
+- [x] Скачивание файла резюме через кнопку в сайдбаре
+- [ ] Команда скачивания резюме через терминал, соответственная секция в терминале
 - [ ] `contact` — блок с контактными данными
 - [ ] `command palette` — палитра команд для быстрого доступа
 - [ ] Анимации переходов между секциями
