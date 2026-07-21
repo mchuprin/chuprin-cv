@@ -1,4 +1,4 @@
-import { AvailablesCommands } from '@_shared/types'
+import { AvailablesCommands } from "@_shared/model/types";
 
 export const SECTIONS: Exclude<AvailablesCommands, 'help'>[] = [
     'whoami',

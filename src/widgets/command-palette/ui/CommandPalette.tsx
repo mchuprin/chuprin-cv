@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Overlay } from '@_shared/ui/overlay'
 import Input from '@_shared/ui/input'
 import { commandDescriptions } from '@_shared/model/constants'

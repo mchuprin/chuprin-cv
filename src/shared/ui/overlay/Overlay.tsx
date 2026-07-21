@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useEffect, useCallback } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import styles from './Overlay.module.scss'
