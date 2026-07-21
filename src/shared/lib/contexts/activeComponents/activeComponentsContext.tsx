@@ -1,17 +1,17 @@
 'use client'
-import { AvailablesCommands } from '@_shared/model/types'
+import { SectionKey } from '@_shared/model/types'
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 export interface Section {
     id: string
-    name: AvailablesCommands
+    name: SectionKey
 }
 
 interface ActiveComponentsContextType {
     sections: Section[]
-    lastSection: AvailablesCommands | ''
-    addSection: (name: AvailablesCommands) => void
-    setLastSection: (section: AvailablesCommands) => void
+    lastSection: SectionKey | ''
+    addSection: (name: SectionKey) => void
+    setLastSection: (section: SectionKey) => void
     clear: () => void
 }
 
@@ -29,9 +29,9 @@ interface ActiveComponentsProviderProps {
 
 export function ActiveComponentsProvider({ children }: ActiveComponentsProviderProps) {
     const [sections, setSections] = useState<Section[]>([{ id: crypto.randomUUID(), name: 'help' }])
-    const [lastSection, setLastSection] = useState<AvailablesCommands | ''>('')
+    const [lastSection, setLastSection] = useState<SectionKey | ''>('')
 
-    const addSection = (name: AvailablesCommands) => {
+    const addSection = (name: SectionKey) => {
         setSections((prev) => [...prev, { id: crypto.randomUUID(), name }])
         setLastSection(name)
     }

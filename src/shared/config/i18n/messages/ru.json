@@ -34,14 +34,24 @@
     "help": {
         "title": "Доступные команды",
         "commands": {
+            "whoami": "whoami",
+            "projects": "projects",
+            "skills": "skills",
+            "experience": "experience",
+            "contact": "contact",
+            "help": "help",
+            "cv": "fetch cv",
+            "clear": "clear"
+        },
+        "commandsDesc": {
             "whoami": "Обо мне",
             "projects": "Мои проекты",
             "skills": "Технологии (стиль neofetch)",
             "experience": "Опыт работы",
             "contact": "Связаться",
             "help": "Показать доступные команды",
-            "clear": "Очистить терминал",
-            "sudo hire-me": "Открыть форму найма"
+            "cv": "Скачать резюме",
+            "clear": "Очистить терминал"
         }
     },
     "hints": {

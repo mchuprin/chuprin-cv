@@ -34,14 +34,24 @@
     "help": {
         "title": "Available commands",
         "commands": {
+            "whoami": "whoami",
+            "projects": "projects",
+            "skills": "skills",
+            "experience": "experience",
+            "contact": "contact",
+            "help": "help",
+            "cv": "fetch cv",
+            "clear": "clear"
+        },
+        "commandsDesc": {
             "whoami": "About me",
             "projects": "View my work",
             "skills": "Technologies (neofetch style)",
             "experience": "Work history",
             "contact": "Get in touch",
             "help": "Show available commands",
-            "clear": "Clear terminal",
-            "sudo hire-me": "Open contact form"
+            "cv": "Download CV",
+            "clear": "Clear terminal"
         }
     },
     "hints": {

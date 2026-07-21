@@ -1,13 +1,12 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import styles from './CommandLine.module.scss'
+import styles from './TerminalSection.module.scss'
 import { ReactNode } from 'react'
 
-interface CommandLineProps {
+interface TerminalSectionProps {
     text: string
     children: ReactNode
 }
 
-export const CommandLine = ({ text, children }: CommandLineProps) => {
+export const TerminalSection = ({ text, children }: TerminalSectionProps) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.command}>

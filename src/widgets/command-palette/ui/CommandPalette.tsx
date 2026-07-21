@@ -1,20 +1,22 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { Overlay } from '@_shared/ui/overlay'
 import Input from '@_shared/ui/input'
-import { commandDescriptions } from '@_shared/model/constants'
-import { AvailablesCommands } from '@_shared/model/types'
+import { SECTION_KEYS } from '@_shared/model/constants'
+import { SectionKey } from '@_shared/model/types'
 import { useActiveComponents } from '@_shared/lib/contexts/activeComponents'
 import { usePalette } from '@_shared/lib/contexts/palette'
 import styles from './CommandPalette.module.scss'
 
-const commands = Object.keys(commandDescriptions) as AvailablesCommands[]
-
 export const CommandPalette = () => {
     const { isOpen, toggle, close } = usePalette()
     const { addSection } = useActiveComponents()
+    const t = useTranslations('help')
     const [query, setQuery] = useState('')
     const [activeIndex, setActiveIndex] = useState(0)
+
+    const commands = Object.values(SECTION_KEYS)
 
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
@@ -28,7 +30,7 @@ export const CommandPalette = () => {
     }, [toggle])
 
     const handleSelect = useCallback(
-        (cmd: AvailablesCommands) => {
+        (cmd: SectionKey) => {
             addSection(cmd)
             close()
         },
@@ -48,7 +50,7 @@ export const CommandPalette = () => {
                 handleSelect(commands[activeIndex])
             }
         },
-        [activeIndex, handleSelect]
+        [commands, activeIndex, handleSelect]
     )
 
     const handleInputChange = useCallback((value: string) => {
@@ -78,11 +80,10 @@ export const CommandPalette = () => {
                         value={query}
                         onChange={handleInputChange}
                         onKeyDown={handleInputKeyDown}
-                        placeholder="type a command..."
+                        placeholder={t('title')}
                         className={styles.input}
                     />
                 </div>
-                {/* ref={listRef} */}
                 <div className={styles.list}>
                     {commands.map((cmd, index) => (
                         <button
@@ -92,13 +93,10 @@ export const CommandPalette = () => {
                             onClick={() => handleSelect(cmd)}
                             onMouseEnter={() => setActiveIndex(index)}
                         >
-                            <span className={styles.name}>{cmd}</span>
-                            <span className={styles.description}>{commandDescriptions[cmd]}</span>
+                            <span className={styles.name}>{t(`commands.${cmd}`)}</span>
+                            <span className={styles.description}>{t(`commandsDesc.${cmd}`)}</span>
                         </button>
                     ))}
-                    {/* {filtered.length === 0 && (
-                        <div className={styles.empty}>No commands match &quot;{query}&quot;</div>
-                    )} */}
                 </div>
                 <div className={styles.footer}>
                     <span>↑↓ to navigate</span>

@@ -1,6 +1,6 @@
-import { AvailablesCommands } from "@_shared/model/types";
+import { SectionKey } from "@_shared/model/types";
 
-export const SECTIONS: Exclude<AvailablesCommands, 'help'>[] = [
+export const SECTIONS: Exclude<SectionKey, 'help' | 'cv'>[] = [
     'whoami',
     'projects',
     'experience',

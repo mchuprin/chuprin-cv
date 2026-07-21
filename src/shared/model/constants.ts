@@ -1,25 +1,28 @@
-import { AvailablesCommands } from './types'
+export const SECTION_KEYS = {
+    WHOAMI: 'whoami',
+    PROJECTS: 'projects',
+    SKILLS: 'skills',
+    EXPERIENCE: 'experience',
+    CONTACT: 'contact',
+    HELP: 'help',
+    CV: 'cv',
+} as const
+
+export type SectionKey = typeof SECTION_KEYS[keyof typeof SECTION_KEYS]
 
 export interface CommandPattern {
     pattern: RegExp
-    name: AvailablesCommands
+    name: SectionKey
 }
 
 export const commandPatterns: CommandPattern[] = [
-    { pattern: /^whoami$/, name: 'whoami' },
-    { pattern: /^projects$/, name: 'projects' },
-    { pattern: /^(skills|neofetch)$/, name: 'skills' },
-    { pattern: /^experience$/, name: 'experience' },
-    { pattern: /^(contact|sudo\s+hire-me)$/, name: 'contact' },
-    { pattern: /^help$/, name: 'help' }
-]
-export const clearPattern: RegExp = /^clear$/
+    { pattern: /^whoami$/, name: SECTION_KEYS.WHOAMI },
+    { pattern: /^projects$/, name: SECTION_KEYS.PROJECTS },
+    { pattern: /^(skills|neofetch)$/, name: SECTION_KEYS.SKILLS },
+    { pattern: /^experience$/, name: SECTION_KEYS.EXPERIENCE },
+    { pattern: /^(contact|sudo\s+hire-me)$/, name: SECTION_KEYS.CONTACT },
+    { pattern: /^help$/, name: SECTION_KEYS.HELP },
+    { pattern: /^fetch\s+cv$/, name: SECTION_KEYS.CV }
+] as const
 
-export const commandDescriptions: Record<AvailablesCommands, string> = {
-    whoami: 'About me',
-    projects: 'View my work',
-    skills: 'Technologies (neofetch style)',
-    experience: 'Work history',
-    contact: 'Get in touch',
-    help: 'Show available commands',
-}
+export const clearPattern: RegExp = /^clear$/

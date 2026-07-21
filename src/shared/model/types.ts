@@ -1,4 +1,3 @@
-export type AvailablesCommands =
-    'whoami' | 'projects' | 'experience' | 'skills' | 'contact' | 'help'
+export type { SectionKey } from './constants'
 
 export type Locale = 'ru' | 'en'

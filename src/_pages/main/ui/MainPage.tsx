@@ -10,19 +10,22 @@ import { ComponentType, useRef, useEffect } from 'react'
 import TerminalInput from '@_widgets/terminal-input'
 import { CommandPalette } from '@_widgets/command-palette'
 import styles from './MainPage.module.scss'
-import { AvailablesCommands } from '@_shared/model/types'
+import { SectionKey } from '@_shared/model/types'
+import { SECTION_KEYS } from '@_shared/model/constants'
+import { CV } from '@_entities/cv'
 
 interface MainPageProps {
     className?: string
 }
 
-const componentsMap: Record<AvailablesCommands, ComponentType> = {
-    whoami: Whoami,
-    projects: Projects,
-    experience: Experience,
-    skills: Skills,
-    contact: Contact,
-    help: Help
+const componentsMap: Record<SectionKey, ComponentType> = {
+    [SECTION_KEYS.WHOAMI]: Whoami,
+    [SECTION_KEYS.PROJECTS]: Projects,
+    [SECTION_KEYS.EXPERIENCE]: Experience,
+    [SECTION_KEYS.SKILLS]: Skills,
+    [SECTION_KEYS.CONTACT]: Contact,
+    [SECTION_KEYS.HELP]: Help,
+    [SECTION_KEYS.CV]: CV
 }
 
 export const MainPage = (props: MainPageProps) => {

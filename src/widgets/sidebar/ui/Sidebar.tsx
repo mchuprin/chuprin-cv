@@ -2,7 +2,7 @@
 import { useTranslations } from 'next-intl'
 import Navlink from '@_shared/ui/navlink'
 import { useActiveComponents } from '@/shared/lib/contexts/activeComponents'
-import { DownloadButton } from '@_entities/resume'
+import { DownloadButton } from '@/entities/cv'
 import { SECTIONS } from '../model/constants'
 import styles from './Sidebar.module.scss'
 

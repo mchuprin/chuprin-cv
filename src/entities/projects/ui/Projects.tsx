@@ -1,5 +1,5 @@
 import { classNames } from '@_shared/lib/classNames/classNames'
-import CommandLine from '@_shared/ui/command-line'
+import TerminalSection from '@_shared/ui/terminal-section'
 import { PROJECTS, STATUS_COLOR } from '../model/constants'
 import styles from './Projects.module.scss'
 
@@ -10,7 +10,7 @@ interface ProjectsProps {
 export const Projects = ({ className }: ProjectsProps) => {
     return (
         <div className={classNames('t-content', {}, [className])}>
-            <CommandLine text="projects">
+            <TerminalSection text="projects">
                 <div className={styles.total}>total {PROJECTS.length} directories</div>
                 <div className={styles.list}>
                     {PROJECTS.map((p) => (
@@ -28,7 +28,7 @@ export const Projects = ({ className }: ProjectsProps) => {
                         </div>
                     ))}
                 </div>
-            </CommandLine>
+            </TerminalSection>
         </div>
     )
 }

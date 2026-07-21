@@ -6,7 +6,7 @@ import { useActiveComponents } from '@_shared/lib/contexts/activeComponents'
 import { clearPattern, commandPatterns } from '../constants'
 import { useHistoryNavigation } from '@_shared/lib/hooks'
 import Input from '@_shared/ui/input'
-import { AvailablesCommands } from '@_shared/model/types'
+import { SectionKey } from '@_shared/model/types'
 
 interface TerminalInputProps {
     className?: string
@@ -15,7 +15,7 @@ interface TerminalInputProps {
 export const TerminalInput = ({ className }: TerminalInputProps) => {
     const [command, setCommand] = useState('')
     const { addSection, clear } = useActiveComponents()
-    const [history, setHistory] = useState<AvailablesCommands[]>([])
+    const [history, setHistory] = useState<SectionKey[]>([])
 
     const { navigateUp, navigateDown, resetIndex } = useHistoryNavigation(history)
 
