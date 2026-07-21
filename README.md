@@ -19,8 +19,8 @@
 | Framework | Next.js 16 (App Router, static export) |
 | Language | TypeScript 5 |
 | UI Library | React 19 |
-| Styling | Tailwind CSS v4, Sass (SCSS) |
-| State Management | Redux Toolkit, React Context |
+| Styling | Sass (SCSS Modules) |
+| State Management | React Context |
 | Internationalization | next-intl (RU/EN) |
 | Architecture | Feature-Sliced Design |
 | Linting | ESLint, Prettier, Steiger (FSD linter) |
@@ -73,12 +73,12 @@ Place your PDF resume files in `public/cv/`:
 
 ```
 src/
-├── _app/                  # App layer: providers, layouts, store, global styles
+├── _app/                  # App layer: providers, layouts, global styles
 ├── _pages/                # Pages layer: route components
-├── widgets/               # UI blocks: header, sidebar, footer, terminal-input
-├── entities/              # Business entities: whoami, skills, projects, experience, help, resume
+├── widgets/               # UI blocks: header, sidebar, footer, terminal-input, command-palette
+├── entities/              # Business entities: whoami, skills, projects, experience, help, contact, resume
 ├── features/              # User-facing features: locale-switcher
-└── shared/                # Reusable: UI components, hooks, config, types, constants
+└── shared/                # Reusable: UI components, hooks, contexts, config, types, constants
 ```
 
 ## Architecture
@@ -87,7 +87,7 @@ The project follows **Feature-Sliced Design** — an architectural methodology f
 
 | Layer | Purpose |
 |-------|---------|
-| `_app` | App-level setup: providers, global layout, Redux store, styles |
+| `_app` | App-level setup: providers, global layout, styles |
 | `_pages` | Page components mapped to routes |
 | `widgets` | Large UI blocks composing the page (header, sidebar, terminal) |
 | `entities` | Business domain entities (skills, projects, experience, resume) |
@@ -140,7 +140,7 @@ Base path: `/chuprin-cv`
 - Архитектура Feature-Sliced Design с линтингом через Steiger
 - Адаптивный дизайн
 
-**Стек:** Next.js 16, React 19, TypeScript, Tailwind CSS v4, Sass, Redux Toolkit, next-intl
+**Стек:** Next.js 16, React 19, TypeScript, Sass, next-intl
 
 ## Planned Features
 
