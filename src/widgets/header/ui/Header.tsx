@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import { LocaleSwitcher } from '@_features/locale-switcher'
 import { Button } from '@_shared/ui/button'
@@ -10,8 +11,28 @@ interface HeaderProps {
     className?: string
 }
 
+const formatTime = () =>
+    new Date()
+        .toLocaleString('en-GB', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+            timeZoneName: 'short'
+        })
+        .replace(/\//g, '-')
+
 export const Header = ({ className }: HeaderProps) => {
     const { open } = usePalette()
+    const [time, setTime] = useState(formatTime)
+
+    useEffect(() => {
+        const interval = setInterval(() => setTime(formatTime()), 1000)
+        return () => clearInterval(interval)
+    }, [])
 
     return (
         <header className={classNames(styles.header, {}, [className])}>
@@ -27,20 +48,7 @@ export const Header = ({ className }: HeaderProps) => {
                     <span>⌘K</span>
                     <span className={styles.paletteLabel}>Command palette</span>
                 </Button>
-                <div className={styles.time}>
-                    {new Date()
-                        .toLocaleString('en-GB', {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                            hour: '2-digit',
-                            minute: '2-digit',
-                            second: '2-digit',
-                            hour12: false,
-                            timeZoneName: 'short'
-                        })
-                        .replace(/\//g, '-')}
-                </div>
+                <div className={styles.time} suppressHydrationWarning>{time}</div>
             </div>
         </header>
     )

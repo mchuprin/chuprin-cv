@@ -19,19 +19,11 @@ export const TerminalInput = ({ className }: TerminalInputProps) => {
 
     const { navigateUp, navigateDown, resetIndex } = useHistoryNavigation(history)
 
-    const updateCommand = (text: string, newPos: number) => {
-        setCommand(text)
-    }
-
-    const handleOnChange = (text: string, newPos: number) => {
-        updateCommand(text, newPos)
-    }
-
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'ArrowUp') {
             event.preventDefault()
             const item = navigateUp()
-            if (item) updateCommand(item, item.length)
+            if (item) setCommand(item)
             return
         }
 
@@ -39,9 +31,9 @@ export const TerminalInput = ({ className }: TerminalInputProps) => {
             event.preventDefault()
             const item = navigateDown()
             if (item) {
-                updateCommand(item, item.length)
+                setCommand(item)
             } else {
-                updateCommand('', 0)
+                setCommand('')
             }
             return
         }
@@ -52,7 +44,7 @@ export const TerminalInput = ({ className }: TerminalInputProps) => {
             const cmd = command.trim().toLowerCase()
 
             if (clearPattern.test(cmd)) {
-                updateCommand('', 0)
+                setCommand('')
                 return clear()
             }
 
@@ -63,16 +55,16 @@ export const TerminalInput = ({ className }: TerminalInputProps) => {
                 addSection(match.name)
             }
 
-            updateCommand('', 0)
+            setCommand('')
         }
     }
 
     return (
         <div className={classNames(styles.terminal, {}, [className])}>
-            <span className='prompt'>&#36;</span>
+            <span className="prompt">&#36;</span>
             <Input
                 value={command}
-                onChange={handleOnChange}
+                onChange={(text) => setCommand(text)}
                 onKeyDown={handleKeyDown}
                 className={styles.input}
             />
