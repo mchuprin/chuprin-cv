@@ -1,5 +1,5 @@
 'use client'
-import { AvailablesCommands } from '@/shared/types'
+import { AvailablesCommands } from '@_shared/model/types'
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 export interface Section {

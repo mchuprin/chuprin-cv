@@ -1,4 +1,5 @@
-import { ActiveComponentsProvider } from "@_shared/lib/activeComponents/activeComponentsContext";
+import { ActiveComponentsProvider } from "@_shared/lib/contexts/activeComponents/activeComponentsContext";
+import { PaletteProvider } from "@_shared/lib/contexts/palette";
 import { NextIntlClientProvider } from "next-intl";
 import { ReactNode } from "react";
 
@@ -12,7 +13,9 @@ export const AppProviders = ({ children, locale, messages }: AppProvidersProps) 
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
             <ActiveComponentsProvider>
-                {children}
+                <PaletteProvider>
+                    {children}
+                </PaletteProvider>
             </ActiveComponentsProvider>
         </NextIntlClientProvider>
     );

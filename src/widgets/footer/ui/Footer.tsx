@@ -1,6 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import { useActiveComponents } from '@_shared/lib/activeComponents'
+import { useActiveComponents } from '@_shared/lib/contexts/activeComponents'
 import styles from './Footer.module.scss'
 
 interface FooterProps {

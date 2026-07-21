@@ -1,3 +1,4 @@
+'use client'
 import Sidebar from '@_widgets/sidebar'
 import { ReactNode } from 'react'
 import styles from './DefalutLayout.module.scss'

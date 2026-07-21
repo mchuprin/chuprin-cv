@@ -4,11 +4,13 @@ import Skills from '@_entities/skills'
 import Whoami from '@_entities/whoami'
 import Experience from '@_entities/experience'
 import Help from '@_entities/help'
-import { AvailablesCommands } from '@/shared/types'
-import { useActiveComponents } from '@/shared/lib/activeComponents'
+import Contact from '@_entities/contact'
+import { useActiveComponents } from '@/shared/lib/contexts/activeComponents'
 import { ComponentType, useRef, useEffect } from 'react'
 import TerminalInput from '@_widgets/terminal-input'
+import { CommandPalette } from '@_widgets/command-palette'
 import styles from './MainPage.module.scss'
+import { AvailablesCommands } from '@_shared/model/types'
 
 interface MainPageProps {
     className?: string
@@ -19,7 +21,7 @@ const componentsMap: Record<AvailablesCommands, ComponentType> = {
     projects: Projects,
     experience: Experience,
     skills: Skills,
-    contact: () => <div>Contact</div>,
+    contact: Contact,
     help: Help
 }
 
@@ -35,7 +37,7 @@ export const MainPage = (props: MainPageProps) => {
                 lastChild.scrollIntoView({ behavior: 'smooth', block: 'end' })
             }
         }
-    })
+    }, [sections.length])
 
     return (
         <div className={styles.main}>
@@ -50,6 +52,7 @@ export const MainPage = (props: MainPageProps) => {
                 })}
             </div>
             <TerminalInput />
+            <CommandPalette />
         </div>
     )
 }
