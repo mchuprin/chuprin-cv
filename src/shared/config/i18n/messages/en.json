@@ -65,5 +65,8 @@
         "section": "section",
         "enc": "enc: AES-256-GCM",
         "connected": "CONNECTED"
+    },
+    "input": {
+        "placeholder":"type a command..."
     }
 }

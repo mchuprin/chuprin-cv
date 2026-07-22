@@ -65,5 +65,8 @@
         "section": "секция",
         "enc": "enc: AES-256-GCM",
         "connected": "ПОДКЛЮЧЁН"
+    },
+    "input": {
+        "placeholder": "введите команду..."
     }
 }

@@ -13,8 +13,8 @@ export const CommandPalette = () => {
     const { isOpen, toggle, close } = usePalette()
     const { addSection } = useActiveComponents()
     const t = useTranslations('help')
-    const [query, setQuery] = useState('')
-    const [activeIndex, setActiveIndex] = useState(0)
+    const [command, setCommand] = useState('')
+    const [activeIndex, setActiveIndex] = useState(-1)
 
     const commands = Object.values(SECTION_KEYS)
 
@@ -29,23 +29,33 @@ export const CommandPalette = () => {
         return () => window.removeEventListener('keydown', handleKey)
     }, [toggle])
 
+    const onCloseDialog = useCallback(() => {
+        close()
+        setCommand('')
+        setActiveIndex(-1)
+    }, [close])
+
     const handleSelect = useCallback(
         (cmd: SectionKey) => {
             addSection(cmd)
-            close()
+            onCloseDialog()
         },
-        [addSection, close]
+        [addSection, onCloseDialog]
     )
 
     const handleInputKeyDown = useCallback(
         (e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'ArrowDown') {
                 e.preventDefault()
-                setActiveIndex((prev) => Math.min(prev + 1, commands.length - 1))
+                const next = Math.min(activeIndex + 1, commands.length - 1)
+                setActiveIndex(next)
+                setCommand(commands[next])
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault()
-                setActiveIndex((prev) => Math.max(prev - 1, 0))
-            } else if (e.key === 'Enter' && commands.length > 0) {
+                const prev = Math.max(activeIndex - 1, -1)
+                setActiveIndex(prev)
+                setCommand(prev === -1 ? '' : commands[prev])
+            } else if (e.key === 'Enter' && activeIndex >= 0) {
                 e.preventDefault()
                 handleSelect(commands[activeIndex])
             }
@@ -54,13 +64,12 @@ export const CommandPalette = () => {
     )
 
     const handleInputChange = useCallback((value: string) => {
-        setQuery(value)
+        setCommand(value)
     }, [])
 
-    const onCloseDialog = () => {
-        close()
-        setQuery('')
-        setActiveIndex(0)
+    const handleOnClick = (index: number) => {
+        setActiveIndex(index)
+        setCommand(commands[index])
     }
 
     return (
@@ -69,7 +78,7 @@ export const CommandPalette = () => {
                 className={styles.palette}
                 onClick={(e) => e.stopPropagation()}
                 onKeyDown={(e) => {
-                    if (e.key === 'Escape') close()
+                    if (e.key === 'Escape') onCloseDialog()
                 }}
                 role="dialog"
                 tabIndex={-1}
@@ -77,10 +86,9 @@ export const CommandPalette = () => {
                 <div className={styles.searchWrapper}>
                     <span className="prompt">&#36;</span>
                     <Input
-                        value={query}
+                        value={command}
                         onChange={handleInputChange}
                         onKeyDown={handleInputKeyDown}
-                        placeholder={t('title')}
                         className={styles.input}
                     />
                 </div>
@@ -90,8 +98,7 @@ export const CommandPalette = () => {
                             key={cmd}
                             type="button"
                             className={`${styles.item} ${index === activeIndex ? styles.itemActive : ''}`}
-                            onClick={() => handleSelect(cmd)}
-                            onMouseEnter={() => setActiveIndex(index)}
+                            onClick={() => handleOnClick(index)}
                         >
                             <span className={styles.name}>{t(`commands.${cmd}`)}</span>
                             <span className={styles.description}>{t(`commandsDesc.${cmd}`)}</span>

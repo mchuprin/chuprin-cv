@@ -1,8 +1,9 @@
 'use client'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import styles from './Input.module.scss'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useCustomCursor } from '@_shared/lib/hooks'
+import { useTranslations } from 'next-intl'
 
 interface InputProps {
     value: string
@@ -12,15 +13,19 @@ interface InputProps {
     className?: string
 }
 
-export const Input = ({ value, onChange, onKeyDown, placeholder = 'type a command...', className }: InputProps) => {
+export const Input = ({ value, onChange, onKeyDown, placeholder = '', className }: InputProps) => {
     const inputRef = useRef<HTMLInputElement>(null)
+    const isUserInput = useRef(false)
+    const t = useTranslations('input')
+    const placeholderText = placeholder || t('placeholder')
 
     const { measureRef, caretLeft, cursorPos, setCursorPos } = useCustomCursor({
         inputRef,
-        value,
+        value
     })
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        isUserInput.current = true
         const newPos = event.target.selectionStart ?? event.target.value.length
         setCursorPos(newPos)
         onChange(event.target.value, newPos)
@@ -42,6 +47,13 @@ export const Input = ({ value, onChange, onKeyDown, placeholder = 'type a comman
         onKeyDown?.(event)
     }
 
+    useEffect(() => {
+        if (!isUserInput.current) {
+            setCursorPos(value.length)
+        }
+        isUserInput.current = false
+    }, [value, setCursorPos])
+
     return (
         <div
             className={classNames(styles.inputWrapper, {}, [className])}
@@ -52,7 +64,7 @@ export const Input = ({ value, onChange, onKeyDown, placeholder = 'type a comman
             </span>
             <span className={styles.inputDisplay}>{value}</span>
             <span className={styles.caret} />
-            {!value && <span className={styles.placeholder}>{placeholder}</span>}
+            {!value && <span className={styles.placeholder}>{placeholderText}</span>}
             <input
                 ref={inputRef}
                 value={value}
