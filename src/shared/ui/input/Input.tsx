@@ -1,7 +1,7 @@
 'use client'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import styles from './Input.module.scss'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useCustomCursor } from '@_shared/lib/hooks'
 import { useTranslations } from 'next-intl'
 

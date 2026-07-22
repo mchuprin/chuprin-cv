@@ -32,10 +32,12 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
     const [lastSection, setLastSection] = useState<SectionKey | ''>('')
 
     const addSection = (name: SectionKey) => {
-        setSections((prev) => [...prev, { id: crypto.randomUUID(), name }])
-        setLastSection(name)
+        if (name !== lastSection) {
+            setSections((prev) => [...prev, { id: crypto.randomUUID(), name }])
+            setLastSection(name)
+        }
     }
-    
+
     const clear = () => {
         setLastSection('')
         setSections([{ id: crypto.randomUUID(), name: 'help' }])
