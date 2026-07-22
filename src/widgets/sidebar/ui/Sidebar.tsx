@@ -12,11 +12,11 @@ interface SidebarProps {
 
 export const Sidebar = (props: SidebarProps) => {
     const { addSection, lastSection } = useActiveComponents()
-    const t = useTranslations('hints')
+    const t = useTranslations('nav')
 
     return (
         <aside className={styles.sidebar}>
-            <h1 className={styles.title}>NAVIGATION</h1>
+            <h1 className={styles.title}>{t('title')}</h1>
             <div className={styles.navigation}>
                 {SECTIONS.map((section) => (
                     <Navlink

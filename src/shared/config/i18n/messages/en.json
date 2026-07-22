@@ -1,11 +1,14 @@
 {
     "nav": {
+        "title": "NAVIGATION",
         "whoami": "Whoami",
         "projects": "Projects",
         "skills": "Skills",
         "experience": "Experience",
         "contact": "Contact",
-        "help": "Help"
+        "help": "Help",
+        "history": "history",
+        "clear": "clear terminal"
     },
     "terminal": {
         "placeholder": "type a command...",
@@ -53,10 +56,6 @@
             "cv": "Download CV",
             "clear": "Clear terminal"
         }
-    },
-    "hints": {
-        "history": "history",
-        "clear": "clear terminal"
     },
     "resume": {
         "button": "CV.pdf"
