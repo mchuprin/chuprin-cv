@@ -42,6 +42,7 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
 
     const selectSection = (name: SectionKey) => {
         setSections([{ id: crypto.randomUUID(), name }])
+        setLastSection(name)
     }
 
     const clear = () => {

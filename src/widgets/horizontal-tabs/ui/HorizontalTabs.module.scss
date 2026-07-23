@@ -3,6 +3,8 @@
 .tabs {
     @include panel(bottom);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     overflow-x: auto;
     flex-shrink: 0;
 
