@@ -1,0 +1,12 @@
+@use '@_app/styles/panels' as *;
+
+.tabs {
+    @include panel(bottom);
+    display: flex;
+    overflow-x: auto;
+    flex-shrink: 0;
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+}

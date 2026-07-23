@@ -1,0 +1,46 @@
+.default {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--background);
+}
+
+.desktopOnly {
+}
+
+.tabletOnly {
+    display: none;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.main {
+    flex: 1;
+    min-height: 0;
+    min-width: 0;
+}
+
+.mainWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (max-width: 1023px) {
+    .desktopOnly {
+        display: none;
+    }
+
+    .tabletOnly {
+        display: flex;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+}

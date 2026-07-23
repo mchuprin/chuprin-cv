@@ -12,6 +12,7 @@ interface ActiveComponentsContextType {
     lastSection: SectionKey | ''
     addSection: (name: SectionKey) => void
     setLastSection: (section: SectionKey) => void
+    selectSection: (section: SectionKey) => void
     clear: () => void
 }
 
@@ -20,6 +21,7 @@ const ActiveComponentsContext = createContext<ActiveComponentsContextType>({
     lastSection: '',
     addSection: () => {},
     setLastSection: () => {},
+    selectSection: () => {},
     clear: () => {}
 })
 
@@ -38,6 +40,10 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
         }
     }
 
+    const selectSection = (name: SectionKey) => {
+        setSections([{ id: crypto.randomUUID(), name }])
+    }
+
     const clear = () => {
         setLastSection('')
         setSections([{ id: crypto.randomUUID(), name: 'help' }])
@@ -45,7 +51,7 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
 
     return (
         <ActiveComponentsContext.Provider
-            value={{ sections, lastSection, addSection, setLastSection, clear }}
+            value={{ sections, lastSection, addSection, setLastSection, selectSection, clear }}
         >
             {children}
         </ActiveComponentsContext.Provider>

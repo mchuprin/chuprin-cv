@@ -26,3 +26,11 @@ export const commandPatterns: CommandPattern[] = [
 ] as const
 
 export const clearPattern: RegExp = /^clear$/
+
+export const SECTIONS: Exclude<SectionKey, 'help' | 'cv'>[] = [
+    'whoami',
+    'projects',
+    'experience',
+    'skills',
+    'contact'
+]

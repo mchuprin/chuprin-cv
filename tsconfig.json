@@ -19,7 +19,6 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
       "@_app/*": ["./src/_app/*"],
       "@_pages/*": ["./src/_pages/*"],
       "@_widgets/*": ["./src/widgets/*"],
