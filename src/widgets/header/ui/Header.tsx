@@ -1,9 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import { LocaleSwitcher } from '@_features/locale-switcher'
 import { Button } from '@_shared/ui/button'
 import { usePalette } from '@_shared/lib/contexts/palette'
+import { DownloadButton } from '@_entities/cv'
 import { ASCII_LOGO } from '../model/constants'
 import styles from './Header.module.scss'
 
@@ -27,6 +29,7 @@ const formatTime = () =>
 
 export const Header = ({ className }: HeaderProps) => {
     const { open } = usePalette()
+    const t = useTranslations('whoami')
     const [time, setTime] = useState(formatTime)
 
     useEffect(() => {
@@ -36,19 +39,42 @@ export const Header = ({ className }: HeaderProps) => {
 
     return (
         <header className={classNames(styles.header, {}, [className])}>
-            <div className={styles.trafficLights}>
+            {/* Traffic lights — desktop only */}
+            <div className={classNames(styles.trafficLights, {}, [styles.desktopOnly])}>
                 <span className={`${styles.dot} ${styles.dot_red}`} />
                 <span className={`${styles.dot} ${styles.dot_yellow}`} />
                 <span className={`${styles.dot} ${styles.dot_green}`} />
             </div>
+
+            {/* ASCII logo — always */}
             <pre className={styles.logo}>{ASCII_LOGO}</pre>
+
             <div className={styles.right}>
-                <LocaleSwitcher />
-                <Button type="button" onClick={open}>
+                {/* Desktop: LocaleSwitcher */}
+                <div className={styles.desktopOnly}>
+                    <LocaleSwitcher />
+                </div>
+
+                {/* Desktop: Command palette button */}
+                <Button type="button" onClick={open} className={styles.desktopOnly}>
                     <span>⌘K</span>
                     <span className={styles.paletteLabel}>Command palette</span>
                 </Button>
-                <div className={styles.time} suppressHydrationWarning>{time}</div>
+
+                {/* Desktop: Time */}
+                <div className={classNames(styles.time, {}, [styles.desktopOnly])} suppressHydrationWarning>
+                    {time}
+                </div>
+
+                {/* Tablet/Mobile: ● AVAILABLE */}
+                <span className={classNames(styles.available, {}, [styles.notDesktopOnly])}>
+                    ● {t('available')}
+                </span>
+
+                {/* Tablet only: DownloadButton */}
+                <div className={styles.tabletOnly}>
+                    <DownloadButton />
+                </div>
             </div>
         </header>
     )

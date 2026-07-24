@@ -50,3 +50,15 @@
   --green: #39ff14;
   --green-rgb: 57, 255, 20;
 }
+
+// @media (max-width: 1023px) {
+//     :root {
+//         --font-size: 16px;
+//     }
+// }
+
+@media (max-width: 639px) {
+    :root {
+        --font-size: 14px;
+    }
+}

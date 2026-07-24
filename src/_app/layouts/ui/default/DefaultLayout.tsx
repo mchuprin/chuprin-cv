@@ -1,6 +1,6 @@
 'use client'
 import { ReactNode } from 'react'
-import Header, { TabletHeader } from '@_widgets/header'
+import { Header } from '@_widgets/header'
 import { HorizontalTabs } from '@_widgets/horizontal-tabs'
 import Sidebar from '@_widgets/sidebar'
 import TerminalInput from '@_widgets/terminal-input'
@@ -18,12 +18,13 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             <div className="viewport-glare" />
             <div className="scanlines" />
 
-            <Header className={styles.desktopOnly} />
-            <TabletHeader className={styles.tabletOnly} />
+            <Header />
 
             <div className={styles.content}>
-                <HorizontalTabs className={styles.tabletOnly} />
                 <Sidebar className={styles.desktopOnly} />
+                <div className={styles.horizontalTabs}>
+                    <HorizontalTabs />
+                </div>
 
                 <div className={styles.mainWrapper}>
                     <main className={styles.main}>{children}</main>
@@ -32,7 +33,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             </div>
 
             <CommandPalette />
-            <Footer />
+            <Footer className={styles.notMobileOnly} />
         </div>
     )
 }

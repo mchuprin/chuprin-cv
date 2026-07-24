@@ -12,6 +12,13 @@
     display: none;
 }
 
+.mobileOnly {
+    display: none;
+}
+
+.notMobileOnly {
+}
+
 .content {
     display: flex;
     flex: 1;
@@ -28,6 +35,11 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.horizontalTabs {
 }
 
 @media (max-width: 1023px) {
@@ -42,5 +54,27 @@
     .content {
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width: 639px) {
+    .desktopOnly {
+        display: none;
+    }
+
+    .tabletOnly {
+        display: none;
+    }
+
+    .mobileOnly {
+        display: flex;
+    }
+
+    .notMobileOnly {
+        display: none;
+    }
+
+    .horizontalTabs {
+        order: 10;
     }
 }
