@@ -33,7 +33,7 @@
 - **Resume Download** — download PDF resume from sidebar (locale-aware: RU/EN)
 - **Static Export** — fully static site deployed to GitHub Pages
 - **FSD Architecture** — strict layer separation for scalable, maintainable code
-- **Responsive Design** — adapts to different screen sizes
+- **Responsive Design** — desktop (terminal), tablet (tabs), mobile (bottom nav) layouts
 
 ## Terminal Commands
 
@@ -42,8 +42,9 @@
 | `whoami` | Developer bio and name card |
 | `skills` / `neofetch` | Skills displayed in neofetch style |
 | `projects` | Project directory listing |
-| `experience` | Work experience (coming soon) |
-| `contact` / `sudo hire-me` | Contact information (coming soon) |
+| `experience` | Work experience |
+| `contact` / `sudo hire-me` | Contact information |
+| `cv` | Download resume as PDF |
 | `help` | List all available commands |
 | `clear` | Reset terminal to initial state |
 
@@ -75,8 +76,8 @@ Place your PDF resume files in `public/cv/`:
 src/
 ├── _app/                  # App layer: providers, layouts, global styles
 ├── _pages/                # Pages layer: route components
-├── widgets/               # UI blocks: header, sidebar, footer, terminal-input, command-palette
-├── entities/              # Business entities: whoami, skills, projects, experience, help, contact, resume
+├── widgets/               # UI blocks: header, sidebar, footer, horizontal-tabs, terminal-input, command-palette
+├── entities/              # Business entities: whoami, skills, projects, experience, help, contact, cv
 ├── features/              # User-facing features: locale-switcher
 └── shared/                # Reusable: UI components, hooks, contexts, config, types, constants
 ```
@@ -89,8 +90,8 @@ The project follows **Feature-Sliced Design** — an architectural methodology f
 |-------|---------|
 | `_app` | App-level setup: providers, global layout, styles |
 | `_pages` | Page components mapped to routes |
-| `widgets` | Large UI blocks composing the page (header, sidebar, terminal) |
-| `entities` | Business domain entities (skills, projects, experience, resume) |
+| `widgets` | Large UI blocks composing the page (header, sidebar, horizontal-tabs, terminal) |
+| `entities` | Business domain entities (skills, projects, experience, cv) |
 | `features` | User interactions (locale switching, command palette) |
 | `shared` | Cross-cutting: reusable components, utilities, config, types |
 
@@ -138,22 +139,22 @@ Base path: `/chuprin-cv`
 - Скачивание PDF-резюме через кнопку в сайдбаре (locale-aware)
 - Полностью статичный сайт, деплой на GitHub Pages
 - Архитектура Feature-Sliced Design с линтингом через Steiger
-- Адаптивный дизайн
+- Адаптивный дизайн: desktop (терминал), tablet (табы), mobile (нижняя навигация)
 
 **Стек:** Next.js 16, React 19, TypeScript, Sass, next-intl
 
 ## Planned Features
 
-- [ ] `experience` — отображение опыта работы из `cv/CV.md`
-- [ ] `contact` — блок с контактными данными
-- [ ] Команда скачивания резюме через терминал, соответственная секция в терминале
 - [ ] Скриншот/GIF для README
-- [ ] Адаптив на телефоны и планшеты
 - [ ] Иконка приложения
 - [ ] Автофокус на инпут терминала
+- [ ] Опыт работы — парсинг из `cv/CV.md`
 
+- [x] Адаптив шаблона на телефоны и планшеты
 - [x] Как-то обработать дубли при вводе одной и той же команды несколько раз
 - [x] Логика выбора команды в CommandPalette
 - [x] Скачивание файла резюме через кнопку в сайдбаре
 - [x] `command palette` — палитра команд для быстрого доступа
 - [x] Анимации переходов между секциями
+- [x] `experience` — отображение опыта работы
+- [x] `contact` — блок с контактными данными

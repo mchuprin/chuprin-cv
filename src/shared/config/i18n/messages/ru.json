@@ -63,7 +63,7 @@
     "footer": {
         "section": "секция",
         "enc": "enc: AES-256-GCM",
-        "connected": "ПОДКЛЮЧЁН"
+        "connected": "ПОДКЛЮЧЕНО"
     },
     "input": {
         "placeholder": "введите команду..."
