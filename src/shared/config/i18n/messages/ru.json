@@ -11,9 +11,7 @@
         "clear": "очистить терминал"
     },
     "terminal": {
-        "placeholder": "введите команду...",
-        "unknown": "Неизвестная команда",
-        "commandNotFound": "команда не найдена: :command — введите help для доступных команд"
+        "placeholder": "введите команду..."
     },
     "whoami": {
         "name": "Имя",
