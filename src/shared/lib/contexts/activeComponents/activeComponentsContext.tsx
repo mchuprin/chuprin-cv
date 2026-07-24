@@ -1,7 +1,7 @@
 'use client'
 import { SectionKey } from '@_shared/model/types'
 import { commandPatterns, clearPattern } from '@_shared/model/constants'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useCallback, useContext, useRef, useState, useId } from 'react'
 
 export interface Section {
     id: string
@@ -36,12 +36,16 @@ interface ActiveComponentsProviderProps {
 }
 
 export function ActiveComponentsProvider({ children }: ActiveComponentsProviderProps) {
-    const [sections, setSections] = useState<Section[]>([{ id: crypto.randomUUID(), name: 'help' }])
+    const baseId = useId()
+    const counterRef = useRef(1)
+    const generateId = useCallback(() => `${baseId}-${counterRef.current++}`, [baseId])
+
+    const [sections, setSections] = useState<Section[]>([{ id: `${baseId}-0`, name: 'help' }])
     const [lastSection, setLastSection] = useState<SectionKey | ''>('')
 
     const addSection = (name: SectionKey) => {
         if (name !== lastSection) {
-            setSections((prev) => [...prev, { id: crypto.randomUUID(), name }])
+            setSections((prev) => [...prev, { id: generateId(), name }])
             setLastSection(name)
         }
     }
@@ -49,12 +53,12 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
     const addUnknownCommand = (command: string) => {
         setSections((prev) => [
             ...prev,
-            { id: crypto.randomUUID(), name: 'unknown', command }
+            { id: generateId(), name: 'unknown', command }
         ])
     }
 
     const selectSection = (name: SectionKey) => {
-        setSections([{ id: crypto.randomUUID(), name }])
+        setSections([{ id: generateId(), name }])
         setLastSection(name)
     }
 
@@ -76,7 +80,7 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
 
     const clear = () => {
         setLastSection('')
-        setSections([{ id: crypto.randomUUID(), name: 'help' }])
+        setSections([{ id: generateId(), name: 'help' }])
     }
 
     return (

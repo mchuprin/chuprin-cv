@@ -11,7 +11,7 @@ export const UnknownCommand = ({ command = '', className }: UnknownCommandProps)
         <div className={classNames('t-content', {}, [className])}>
             <TerminalSection text={command}>
                 <div className="t-error">
-                    {`zsh: command not found: ${command}`}
+                    {`command not found: ${command}`}
                 </div>
             </TerminalSection>
         </div>
