@@ -12,7 +12,8 @@
     },
     "terminal": {
         "placeholder": "введите команду...",
-        "unknown": "Неизвестная команда"
+        "unknown": "Неизвестная команда",
+        "commandNotFound": "команда не найдена: :command — введите help для доступных команд"
     },
     "whoami": {
         "name": "Имя",

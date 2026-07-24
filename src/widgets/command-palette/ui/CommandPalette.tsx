@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
 import { Overlay } from '@_shared/ui/overlay'
 import Input from '@_shared/ui/input'
-import { SECTION_KEYS } from '@_shared/model/constants'
+import { AVAILABLE_COMMANDS } from '@_shared/model/constants'
 import { SectionKey } from '@_shared/model/types'
 import { useActiveComponents } from '@_shared/lib/contexts/activeComponents'
 import { usePalette } from '@_shared/lib/contexts/palette'
@@ -15,8 +15,6 @@ export const CommandPalette = () => {
     const t = useTranslations('help')
     const [command, setCommand] = useState('')
     const [activeIndex, setActiveIndex] = useState(-1)
-
-    const commands = Object.values(SECTION_KEYS)
 
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
@@ -47,20 +45,20 @@ export const CommandPalette = () => {
         (e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === 'ArrowDown') {
                 e.preventDefault()
-                const next = Math.min(activeIndex + 1, commands.length - 1)
+                const next = Math.min(activeIndex + 1, AVAILABLE_COMMANDS.length - 1)
                 setActiveIndex(next)
-                setCommand(commands[next])
+                setCommand(AVAILABLE_COMMANDS[next])
             } else if (e.key === 'ArrowUp') {
                 e.preventDefault()
                 const prev = Math.max(activeIndex - 1, -1)
                 setActiveIndex(prev)
-                setCommand(prev === -1 ? '' : commands[prev])
+                setCommand(prev === -1 ? '' : AVAILABLE_COMMANDS[prev])
             } else if (e.key === 'Enter' && activeIndex >= 0) {
                 e.preventDefault()
-                handleSelect(commands[activeIndex])
+                handleSelect(AVAILABLE_COMMANDS[activeIndex])
             }
         },
-        [commands, activeIndex, handleSelect]
+        [activeIndex, handleSelect]
     )
 
     const handleInputChange = useCallback((value: string) => {
@@ -69,7 +67,7 @@ export const CommandPalette = () => {
 
     const handleOnClick = (index: number) => {
         setActiveIndex(index)
-        setCommand(commands[index])
+        setCommand(AVAILABLE_COMMANDS[index])
     }
 
     return (
@@ -93,7 +91,7 @@ export const CommandPalette = () => {
                     />
                 </div>
                 <div className={styles.list}>
-                    {commands.map((cmd, index) => (
+                    {AVAILABLE_COMMANDS.map((cmd, index) => (
                         <button
                             key={cmd}
                             type="button"

@@ -3,10 +3,8 @@ import { classNames } from '@_shared/lib/classNames/classNames'
 import styles from './TerminalInput.module.scss'
 import { useState } from 'react'
 import { useActiveComponents } from '@_shared/lib/contexts/activeComponents'
-import { clearPattern, commandPatterns } from '../constants'
 import { useHistoryNavigation } from '@_shared/lib/hooks'
 import Input from '@_shared/ui/input'
-import { SectionKey } from '@_shared/model/types'
 
 interface TerminalInputProps {
     className?: string
@@ -14,10 +12,8 @@ interface TerminalInputProps {
 
 export const TerminalInput = ({ className }: TerminalInputProps) => {
     const [command, setCommand] = useState('')
-    const { addSection, clear } = useActiveComponents()
-    const [history, setHistory] = useState<SectionKey[]>([])
-
-    const { navigateUp, navigateDown, resetIndex } = useHistoryNavigation(history)
+    const { processCommand } = useActiveComponents()
+    const { addToHistory, navigateUp, navigateDown, resetIndex } = useHistoryNavigation<string>()
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'ArrowUp') {
@@ -42,19 +38,8 @@ export const TerminalInput = ({ className }: TerminalInputProps) => {
 
         if (event.key === 'Enter') {
             const cmd = command.trim().toLowerCase()
-
-            if (clearPattern.test(cmd)) {
-                setCommand('')
-                return clear()
-            }
-
-            const match = commandPatterns.find(({ pattern }) => pattern.test(cmd))
-
-            if (match) {
-                setHistory((prev) => [...prev, match.name])
-                addSection(match.name)
-            }
-
+            addToHistory(cmd)
+            processCommand(cmd)
             setCommand('')
         }
     }

@@ -11,8 +11,7 @@
         "clear": "clear terminal"
     },
     "terminal": {
-        "placeholder": "type a command...",
-        "unknown": "Unknown command"
+        "placeholder": "type a command..."
     },
     "whoami": {
         "name": "Name",

@@ -1,7 +1,12 @@
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useState } from 'react'
 
-export function useHistoryNavigation<T>(items: T[]) {
+export function useHistoryNavigation<T>() {
+    const [items, setItems] = useState<T[]>([])
     const historyIndex = useRef(-1)
+
+    const addToHistory = useCallback((item: T) => {
+        setItems((prev) => [...prev, item])
+    }, [])
 
     const navigateUp = useCallback((): T | null => {
         if (items.length === 0) return null
@@ -31,5 +36,5 @@ export function useHistoryNavigation<T>(items: T[]) {
         historyIndex.current = -1
     }, [])
 
-    return { navigateUp, navigateDown, resetIndex }
+    return { items, addToHistory, navigateUp, navigateDown, resetIndex }
 }

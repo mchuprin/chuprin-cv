@@ -6,9 +6,10 @@ export const SECTION_KEYS = {
     CONTACT: 'contact',
     HELP: 'help',
     CV: 'cv',
+    UNKNOWN: 'unknown'
 } as const
 
-export type SectionKey = typeof SECTION_KEYS[keyof typeof SECTION_KEYS]
+export type SectionKey = (typeof SECTION_KEYS)[keyof typeof SECTION_KEYS]
 
 export interface CommandPattern {
     pattern: RegExp
@@ -33,4 +34,13 @@ export const SECTIONS: Exclude<SectionKey, 'help' | 'cv'>[] = [
     'experience',
     'skills',
     'contact'
+]
+export const AVAILABLE_COMMANDS: Exclude<SectionKey, 'unknown'>[] = [
+    'whoami',
+    'projects',
+    'experience',
+    'skills',
+    'contact',
+    'help',
+    'cv'
 ]

@@ -11,12 +11,13 @@ import styles from './MainPage.module.scss'
 import { SectionKey } from '@_shared/model/types'
 import { SECTION_KEYS } from '@_shared/model/constants'
 import { CV } from '@_entities/cv'
+import { UnknownCommand } from '@_entities/unknown-command'
 
 interface MainPageProps {
     className?: string
 }
 
-const componentsMap: Record<SectionKey, ComponentType> = {
+const componentsMap: Record<Exclude<SectionKey, 'unknown'>, ComponentType> = {
     [SECTION_KEYS.WHOAMI]: Whoami,
     [SECTION_KEYS.PROJECTS]: Projects,
     [SECTION_KEYS.EXPERIENCE]: Experience,
@@ -44,6 +45,14 @@ export const MainPage = (props: MainPageProps) => {
         <div className={styles.main}>
             <div className={styles.sections} ref={sectionsRef}>
                 {sections.map((item) => {
+                    if (item.name === SECTION_KEYS.UNKNOWN) {
+                        return (
+                            <div key={item.id} className={styles.sectionItem}>
+                                <UnknownCommand command={item.command} />
+                            </div>
+                        )
+                    }
+
                     const Component = componentsMap[item.name]
                     return (
                         <div key={item.id} className={styles.sectionItem}>
