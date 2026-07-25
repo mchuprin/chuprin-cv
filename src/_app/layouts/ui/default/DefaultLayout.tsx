@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { Header } from '@_widgets/header'
 import { HorizontalTabs } from '@_widgets/horizontal-tabs'
 import Sidebar from '@_widgets/sidebar'

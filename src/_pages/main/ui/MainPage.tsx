@@ -12,6 +12,7 @@ import { SectionKey } from '@_shared/model/types'
 import { SECTION_KEYS } from '@_shared/model/constants'
 import { CV } from '@_entities/cv'
 import { UnknownCommand } from '@_entities/unknown-command'
+import { useBreakpoint } from '@_shared/lib/hooks'
 
 interface MainPageProps {
     className?: string
@@ -28,8 +29,17 @@ const componentsMap: Record<Exclude<SectionKey, 'unknown'>, ComponentType> = {
 }
 
 export const MainPage = (props: MainPageProps) => {
-    const { sections } = useActiveComponents()
+    const { sections, selectSection } = useActiveComponents()
     const sectionsRef = useRef<HTMLDivElement>(null)
+    const {isDesktop} = useBreakpoint()
+
+    useEffect(() => {
+        if (isDesktop) {
+            selectSection(SECTION_KEYS.HELP)
+        } else {
+            selectSection(SECTION_KEYS.WHOAMI)
+        }
+    }, [isDesktop, selectSection])
 
     useEffect(() => {
         const container = sectionsRef.current

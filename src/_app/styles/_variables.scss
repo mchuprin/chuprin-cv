@@ -57,8 +57,24 @@
 //     }
 // }
 
-@media (max-width: 639px) {
-    :root {
-        --font-size: 14px;
-    }
+// Breakpoints
+$bp-tablet: 1023px;
+$bp-mobile: 639px;
+
+@mixin tablet {
+  @media (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@include mobile {
+  :root {
+    --font-size: 14px;
+  }
 }

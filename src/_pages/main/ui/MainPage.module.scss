@@ -1,3 +1,5 @@
+@use '@_app/styles/variables' as *;
+
 .main {
     display: flex;
     flex-direction: column;
@@ -43,5 +45,11 @@
         opacity: 1;
         transform: translateX(0);
         filter: blur(0);
+    }
+}
+
+@include tablet {
+    .help {
+        display: none;
     }
 }
