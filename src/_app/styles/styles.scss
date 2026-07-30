@@ -7,7 +7,11 @@
     color: white;
 }
 
-html,
+html {
+    height: 100%;
+    height: -webkit-fill-available;
+}
+
 body {
     height: 100%;
     margin: 0;
@@ -81,6 +85,13 @@ body {
     box-shadow: 0 0 8px #00d9ff, 0 0 16px #00d9ff88;
     vertical-align: text-bottom;
     animation: blink 1s step-start infinite;
+}
+
+.ascii-logo {
+    font-family: monospace;
+    white-space: pre;
+    user-select: none;
+    color: var(--primary);
 }
 
 ::-webkit-scrollbar {

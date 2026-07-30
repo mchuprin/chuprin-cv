@@ -6,7 +6,7 @@ import { LocaleSwitcher } from '@_features/locale-switcher'
 import { Button } from '@_shared/ui/button'
 import { usePalette } from '@_shared/lib/contexts/palette'
 import { DownloadButton } from '@_entities/cv'
-import { ASCII_LOGO } from '../model/constants'
+import { ASCII_LOGO } from '@_shared/model/constants'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
@@ -45,7 +45,7 @@ export const Header = ({ className }: HeaderProps) => {
                 <span className={`${styles.dot} ${styles.dot_green}`} />
             </div>
 
-            <pre className={styles.logo}>{ASCII_LOGO}</pre>
+            <pre className={`ascii-logo ${styles.logo}`}>{ASCII_LOGO}</pre>
 
             <div className={styles.right}>
                 <div className={styles.desktopOnly}>
@@ -57,7 +57,10 @@ export const Header = ({ className }: HeaderProps) => {
                     <span className={styles.paletteLabel}>Command palette</span>
                 </Button>
 
-                <div className={classNames(styles.time, {}, [styles.desktopOnly])} suppressHydrationWarning>
+                <div
+                    className={classNames(styles.time, {}, [styles.desktopOnly])}
+                    suppressHydrationWarning
+                >
                     {time}
                 </div>
 

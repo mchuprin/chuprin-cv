@@ -66,5 +66,9 @@
     },
     "input": {
         "placeholder":"type a command..."
+    },
+    "loading": {
+        "interface": "Loading interface",
+        "skipHint": "PRESS SPACE OR CLICK TO SKIP"
     }
 }

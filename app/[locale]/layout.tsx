@@ -3,7 +3,7 @@ import { AppProviders } from '@_app/providers/AppProviders'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { routing } from '@_shared/config/i18n/routing'
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 import "@_app/styles/styles.scss";
 
@@ -22,6 +22,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Maks Сhuprin CV",
   description: "Author: Maks Chuprin",
+};
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
 };
 
 export function generateStaticParams() {
