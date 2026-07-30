@@ -39,39 +39,32 @@ export const Header = ({ className }: HeaderProps) => {
 
     return (
         <header className={classNames(styles.header, {}, [className])}>
-            {/* Traffic lights — desktop only */}
             <div className={classNames(styles.trafficLights, {}, [styles.desktopOnly])}>
                 <span className={`${styles.dot} ${styles.dot_red}`} />
                 <span className={`${styles.dot} ${styles.dot_yellow}`} />
                 <span className={`${styles.dot} ${styles.dot_green}`} />
             </div>
 
-            {/* ASCII logo — always */}
             <pre className={styles.logo}>{ASCII_LOGO}</pre>
 
             <div className={styles.right}>
-                {/* Desktop: LocaleSwitcher */}
                 <div className={styles.desktopOnly}>
                     <LocaleSwitcher />
                 </div>
 
-                {/* Desktop: Command palette button */}
                 <Button type="button" onClick={open} className={styles.desktopOnly}>
                     <span>⌘K</span>
                     <span className={styles.paletteLabel}>Command palette</span>
                 </Button>
 
-                {/* Desktop: Time */}
                 <div className={classNames(styles.time, {}, [styles.desktopOnly])} suppressHydrationWarning>
                     {time}
                 </div>
 
-                {/* Tablet/Mobile: ● AVAILABLE */}
                 <span className={classNames(styles.available, {}, [styles.notDesktopOnly])}>
                     ● {t('available')}
                 </span>
 
-                {/* Tablet only: DownloadButton */}
                 <div className={styles.tabletOnly}>
                     <DownloadButton />
                 </div>

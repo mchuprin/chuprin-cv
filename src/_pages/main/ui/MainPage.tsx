@@ -13,6 +13,7 @@ import { SECTION_KEYS } from '@_shared/model/constants'
 import { CV } from '@_entities/cv'
 import { UnknownCommand } from '@_entities/unknown-command'
 import { useBreakpoint } from '@_shared/lib/hooks'
+import { classNames } from '@_shared/lib/classNames/classNames'
 
 interface MainPageProps {
     className?: string
@@ -28,10 +29,10 @@ const componentsMap: Record<Exclude<SectionKey, 'unknown'>, ComponentType> = {
     [SECTION_KEYS.CV]: CV
 }
 
-export const MainPage = (props: MainPageProps) => {
+export const MainPage = ({ className }: MainPageProps) => {
     const { sections, selectSection } = useActiveComponents()
     const sectionsRef = useRef<HTMLDivElement>(null)
-    const {isDesktop} = useBreakpoint()
+    const { isDesktop } = useBreakpoint()
 
     useEffect(() => {
         if (isDesktop) {
@@ -52,7 +53,7 @@ export const MainPage = (props: MainPageProps) => {
     }, [sections.length])
 
     return (
-        <div className={styles.main}>
+        <div className={classNames(styles.main, {}, [className])}>
             <div className={styles.sections} ref={sectionsRef}>
                 {sections.map((item) => {
                     if (item.name === SECTION_KEYS.UNKNOWN) {

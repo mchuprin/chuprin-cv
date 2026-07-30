@@ -1,0 +1,65 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cardHeader {
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
+}
+
+.role {
+    color: var(--primary);
+    font-weight: 600;
+    text-shadow: 0 0 8px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.period {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+}
+
+.location {
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+    margin-left: auto;
+}
+
+.company {
+    color: var(--foreground);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+}
+
+.achievement {
+    color: var(--foreground);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    padding-left: 1rem;
+    position: relative;
+
+    &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+    }
+}
+
+.stack {
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+}
+
+.stackLabel {
+    color: var(--primary);
+}

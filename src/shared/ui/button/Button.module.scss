@@ -1,19 +1,21 @@
 .btn {
     background: none;
     border: 1px solid var(--subtle-border);
-    color: var(--muted-foreground);
+    color: var(--foreground);
     padding: 0.3rem 0.75rem;
     font-family: inherit;
     font-size: 0.68rem;
+    letter-spacing: 0.07em;
     cursor: pointer;
-    display: flex;
-    gap: 0.5rem;
+    display: inline-flex;
+    gap: 0.35rem;
     align-items: center;
-    transition: all 0.2s;
+    transition: all 0.18s;
 
     &:hover {
-        border-color: var(--accent);
-        color: var(--accent);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--foreground);
+        background: rgba(255, 255, 255, 0.06);
     }
 }
 
@@ -32,4 +34,24 @@
         border-color: rgba(var(--green-rgb), 0.25);
         color: var(--green);
     }
+}
+
+.cyan {
+    background: color-mix(in srgb, var(--accent) 1%, transparent);
+    color: var(--accent);
+    text-shadow: 0 0 8px color-mix(in srgb, var(--accent) 40%, transparent);
+
+    &:hover {
+        border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+        // background: color-mix(in srgb, var(--accent) 14%, transparent);
+        // box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+}
+
+.disabled {
+    color: var(--label);
+    border-color: var(--subtle-border);
+    cursor: default;
+    font-style: italic;
+    pointer-events: none;
 }
