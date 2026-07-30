@@ -10,6 +10,9 @@
   <a href="#-architecture">Architecture</a>
 </p>
 
+<p align="center">
+  <img src=".github/assets/demo.png" alt="Demo" width="800" />
+</p>
 ---
 
 ## Tech Stack
@@ -145,9 +148,9 @@ Base path: `/chuprin-cv`
 
 ## Planned Features
 
-- [ ] Скриншот/GIF для README
 - [ ] Переделать стили адаптива в `DefaultLayout.tsx`
 
+- [x] Скриншот/GIF для README
 - [x] Иконка приложения
 - [x] Поправить высоту на мобилке
 - [x] Аутентичная загрузка приложения
