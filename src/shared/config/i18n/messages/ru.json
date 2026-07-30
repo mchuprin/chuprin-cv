@@ -70,5 +70,9 @@
     "loading": {
         "interface": "Загрузка интерфейса",
         "skipHint": "НАЖМИТЕ ПРОБЕЛ ИЛИ КЛИКНИТЕ ЧТОБЫ ПРОПУСТИТЬ"
+    },
+    "meta": {
+        "title": "Максим Чуприн",
+        "description": "Frontend-разработчик | 6+ лет | Vue / React / TypeScript"
     }
 }

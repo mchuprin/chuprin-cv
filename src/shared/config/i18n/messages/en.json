@@ -70,5 +70,9 @@
     "loading": {
         "interface": "Loading interface",
         "skipHint": "PRESS SPACE OR CLICK TO SKIP"
+    },
+    "meta": {
+        "title": "Maks Chuprin",
+        "description": "Frontend Developer | 6+ years | Vue / React / TypeScript"
     }
 }

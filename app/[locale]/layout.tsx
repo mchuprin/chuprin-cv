@@ -19,10 +19,19 @@ const inter = Inter({
   display: "optional",
 });
 
-export const metadata: Metadata = {
-  title: "Maks Сhuprin CV",
-  description: "Author: Maks Chuprin",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
+
+  return {
+    title: messages.meta.title,
+    description: messages.meta.description,
+  };
+}
 
 export const viewport: Viewport = {
   viewportFit: "cover",
