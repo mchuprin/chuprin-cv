@@ -33,6 +33,12 @@
     box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
     animation: blink 1s step-end infinite;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.inputWrapper:focus-within .caret {
+    opacity: 1;
 }
 
 .input {

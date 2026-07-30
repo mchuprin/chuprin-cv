@@ -17,7 +17,6 @@ export const Skills = ({ className }: SkillsProps) => {
                     {SKILLS_DATA.map(({ key, items }) => (
                         <div key={key} className="t-row">
                             <span className="t-label">{t(`categories.${key}`)}</span>
-                            <span className="t-sep">:</span>
                             <span className="t-value">{items.join(', ')}</span>
                         </div>
                     ))}

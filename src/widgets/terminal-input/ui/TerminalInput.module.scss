@@ -1,12 +1,16 @@
 @use '@_app/styles/panels' as *;
 
 .terminal {
+    all: unset;
+    box-sizing: border-box;
     @include panel(top);
     padding: 0.875rem 2.25rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     flex-shrink: 0;
+    width: 100%;
+    cursor: text;
 }
 
 .input {

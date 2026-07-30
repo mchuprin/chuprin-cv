@@ -23,7 +23,6 @@ export const Whoami = ({ className }: WhoamiProps) => {
                 {INFO.map(({ label, value, status }) => (
                     <div key={label} className="t-row">
                         <span className="t-label">{label}</span>
-                        <span className="t-sep">:</span>
                         <span className={status ? 't-status' : 't-value'}>{value}</span>
                     </div>
                 ))}
