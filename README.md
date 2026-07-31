@@ -13,6 +13,7 @@
 <p align="center">
   <img src=".github/assets/demo.png" alt="Demo" width="800" />
 </p>
+
 ---
 
 ## Tech Stack
@@ -147,9 +148,10 @@ Base path: `/chuprin-cv`
 **Стек:** Next.js 16, React 19, TypeScript, Sass, next-intl
 
 ## Planned Features
+- [ ] PWA
+- [ ] Семантика и адаптив. Возможно...
 
-- [ ] Переделать стили адаптива в `DefaultLayout.tsx`
-
+- [x] Секция Contact
 - [x] Скриншот/GIF для README
 - [x] Иконка приложения
 - [x] Поправить высоту на мобилке

@@ -17,7 +17,7 @@ export const Help = ({ className }: HelpProps) => {
                 {AVAILABLE_COMMANDS.map((cmd) => (
                     <div key={cmd} className="t-row">
                         <span className="t-cmd">{t(`commands.${cmd}`)}</span>
-                        <span className="t-muted">— {t(`commandsDesc.${cmd}`)}</span>
+                        <span className="t-muted">{t(`commandsDesc.${cmd}`)}</span>
                     </div>
                 ))}
             </TerminalSection>

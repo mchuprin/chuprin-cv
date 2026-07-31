@@ -1,5 +1,8 @@
-import { classNames } from '@_shared/lib/classNames/classNames';
-import styles from './Contact.module.scss';
+import { classNames } from '@_shared/lib/classNames/classNames'
+import TerminalSection from '@_shared/ui/terminal-section'
+import { Button } from '@_shared/ui/button'
+import styles from './Contact.module.scss'
+import { CONTACT_LINKS } from '../model/constants'
 
 interface ContactProps {
     className?: string
@@ -7,8 +10,30 @@ interface ContactProps {
 
 export const Contact = ({ className }: ContactProps) => {
     return (
-        <div className={classNames(styles.Contact, {}, [className])}>
-            Contact
+        <div className={classNames('t-content', {}, [className])}>
+            <TerminalSection text="contact">
+                {CONTACT_LINKS.map(({ label, value }) => (
+                    <div key={label} className="t-row">
+                        <span className="t-label">{label}</span>
+                        <span className="t-value">{value}</span>
+                    </div>
+                ))}
+
+                <div className={styles.links}>
+                    {CONTACT_LINKS.map(({ label, href }) => (
+                        <Button
+                            key={label}
+                            href={href}
+                            variant="cyan"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.action}
+                        >
+                            ↗ {label}
+                        </Button>
+                    ))}
+                </div>
+            </TerminalSection>
         </div>
-    );
-};
+    )
+}
