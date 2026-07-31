@@ -48,7 +48,7 @@
         "commandsDesc": {
             "whoami": "Обо мне",
             "projects": "Мои проекты",
-            "skills": "Технологии (стиль neofetch)",
+            "skills": "Технологии",
             "experience": "Опыт работы",
             "contact": "Связаться",
             "help": "Показать доступные команды",
