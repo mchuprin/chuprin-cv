@@ -44,7 +44,7 @@
 | Command | Description |
 |---------|-------------|
 | `whoami` | Developer bio and name card |
-| `skills` / `neofetch` | Skills displayed in neofetch style |
+| `skills` | Skills displayed in neofetch style |
 | `projects` | Project directory listing |
 | `experience` | Work experience |
 | `contact` / `sudo hire-me` | Contact information |

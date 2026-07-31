@@ -19,7 +19,7 @@ export interface CommandPattern {
 export const commandPatterns: CommandPattern[] = [
     { pattern: /^whoami$/, name: SECTION_KEYS.WHOAMI },
     { pattern: /^projects$/, name: SECTION_KEYS.PROJECTS },
-    { pattern: /^(skills|neofetch)$/, name: SECTION_KEYS.SKILLS },
+    { pattern: /^(skills)$/, name: SECTION_KEYS.SKILLS },
     { pattern: /^experience$/, name: SECTION_KEYS.EXPERIENCE },
     { pattern: /^(contact|sudo\s+hire-me)$/, name: SECTION_KEYS.CONTACT },
     { pattern: /^help$/, name: SECTION_KEYS.HELP },
