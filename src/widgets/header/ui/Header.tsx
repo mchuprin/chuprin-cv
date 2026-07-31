@@ -1,12 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useTranslations } from 'next-intl'
+import { Locale, useLocale } from 'next-intl'
 import { classNames } from '@_shared/lib/classNames/classNames'
 import { LocaleSwitcher } from '@_features/locale-switcher'
 import { Button } from '@_shared/ui/button'
 import { usePalette } from '@_shared/lib/contexts/palette'
 import { DownloadButton } from '@_entities/cv'
 import { ASCII_LOGO } from '@_shared/model/constants'
+import { AVAILABLE } from '@_entities/whoami/model/constants'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
@@ -29,7 +30,7 @@ const formatTime = () =>
 
 export const Header = ({ className }: HeaderProps) => {
     const { open } = usePalette()
-    const t = useTranslations('whoami')
+    const locale = useLocale() as Locale
     const [time, setTime] = useState(formatTime)
 
     useEffect(() => {
@@ -65,7 +66,7 @@ export const Header = ({ className }: HeaderProps) => {
                 </div>
 
                 <span className={classNames(styles.available, {}, [styles.notDesktopOnly])}>
-                    ● {t('available')}
+                    ● {locale === 'en' ? AVAILABLE.en : AVAILABLE.ru}
                 </span>
 
                 <div className={styles.tabletOnly}>

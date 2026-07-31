@@ -13,17 +13,6 @@
     "terminal": {
         "placeholder": "type a command..."
     },
-    "whoami": {
-        "name": "Name",
-        "fullname": "Maksim Chuprin",
-        "role": "Role",
-        "roleValue": "Frontend Developer | 6+ | Vue / React / TypeScript",
-        "location": "Location",
-        "status": "Status",
-        "available": "Available for hire",
-        "english": "English",
-        "bio": "Developing and optimizing web applications. Specialized in refactoring legacy projects, building architecture, and implementing CI/CD. Actively using AI tools — Claude Code, Cursor, Deep Seek."
-    },
     "skills": {
         "categories": {
             "Frontend": "Frontend",

@@ -13,17 +13,6 @@
     "terminal": {
         "placeholder": "введите команду..."
     },
-    "whoami": {
-        "name": "Имя",
-        "fullname": "Максим Чуприн",
-        "role": "Роль",
-        "roleValue": "Frontend Developer | 6+ | Vue / React / TypeScript",
-        "location": "Локация",
-        "status": "Статус",
-        "available": "Открыт для найма",
-        "english": "Английский",
-        "bio": "Разрабатываю и оптимизирую веб-приложения. Специализируюсь на рефакторинге legacy-проектов, построении архитектуры и внедрении CI/CD. Активно использую AI-инструменты в работе — Claude Code, Cursor, Deep Seek."
-    },
     "skills": {
         "categories": {
             "Frontend": "Frontend",
