@@ -14,22 +14,21 @@ export const HorizontalTabs = ({ className }: HorizontalTabsProps) => {
     const { selectSection, lastSection } = useActiveComponents()
 
     return (
-        <>
-            {/* Tablet */}
-            <nav className={classNames(styles.tabsTablet, {}, [className, styles.tabletOnly])}>
+        <div className={className}>
+            <nav className={styles.tabsTablet}>
                 {SECTIONS.map((section) => (
                     <Navlink
                         key={section}
                         variant="horizontal"
                         isActive={lastSection === section}
                         label={section.toUpperCase()}
+                        className={styles.navlink}
                         onClick={() => selectSection(section)}
                     />
                 ))}
             </nav>
 
-            {/* Mobile */}
-            <nav className={classNames(styles.tabsMobile, {}, [className, styles.mobileOnly])}>
+            <nav className={styles.tabsMobile}>
                 {SECTIONS.map((section) => {
                     const isActive = lastSection === section
                     return (
@@ -45,6 +44,6 @@ export const HorizontalTabs = ({ className }: HorizontalTabsProps) => {
                     )
                 })}
             </nav>
-        </>
+        </div>
     )
 }

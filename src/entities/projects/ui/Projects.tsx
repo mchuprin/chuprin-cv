@@ -4,7 +4,7 @@ import { Card } from '@_shared/ui/card'
 import { Button } from '@_shared/ui/button'
 import { PROJECTS } from '../model/constants'
 import styles from './Projects.module.scss'
-import { Locale, useLocale } from 'next-intl'
+import { type Locale, useLocale } from 'next-intl'
 
 interface ProjectsProps {
     className?: string
@@ -22,7 +22,7 @@ export const Projects = ({ className }: ProjectsProps) => {
                         <Card key={p.name}>
                             <div className={styles.cardHeader}>
                                 <span className={styles.permissions}>drwxr-xr-x</span>
-                                <span className={styles.name}>{p.name}/</span>
+                                <span className={classNames(styles.name, {}, ['t-value'])}>{p.name}/</span>
                                 <span className={styles.meta}>
                                     {p.lang} · {p.year}
                                 </span>

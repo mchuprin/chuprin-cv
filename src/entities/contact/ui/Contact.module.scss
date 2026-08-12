@@ -1,5 +1,12 @@
-.links {
+.wrapper > :not(:first-child) {
     margin-top: 0.5rem;
+}
+
+.links {
     display: flex;
     gap: 0.5rem;
 }
+
+.download {
+}
+

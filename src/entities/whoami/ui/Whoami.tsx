@@ -18,12 +18,13 @@ export const Whoami = ({ className }: WhoamiProps) => {
                 {INFO.map(({ label, labelRu, value, valueRu, status }) => (
                     <div key={label} className="t-row">
                         <span className="t-label">{isEn ? label : labelRu}</span>
-                        <span className={status ? 't-status' : 't-value'}>
+                        {/* className={status ? 't-status' : 't-value'} */}
+                        <span className={classNames(styles.desc, {'t-value': !status, 't-status': status}, [])}>
                             {isEn ? value : valueRu}
                         </span>
                     </div>
                 ))}
-                <div className={styles.summary}>{isEn ? BIO.en : BIO.ru}</div>
+                <div className={classNames(styles.summary, {}, ['t-value'])}>{isEn ? BIO.en : BIO.ru}</div>
             </TerminalSection>
         </div>
     )

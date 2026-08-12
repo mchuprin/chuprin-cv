@@ -13,7 +13,9 @@ export const Help = ({ className }: HelpProps) => {
     return (
         <div className={classNames('t-content', {}, [className])}>
             <TerminalSection text="help">
-                <div className="t-label">{t('title')}</div>
+                <div className="t-row">
+                    <p className="t-label">{t('title')}</p>
+                </div>
                 {AVAILABLE_COMMANDS.map((cmd) => (
                     <div key={cmd} className="t-row">
                         <span className="t-cmd">{t(`commands.${cmd}`)}</span>

@@ -1,5 +1,5 @@
 'use client'
-import { useState, ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { AppLoading } from '@_shared/ui/app-loading'
 import { Header } from '@_widgets/header'
 import { HorizontalTabs } from '@_widgets/horizontal-tabs'
@@ -27,9 +27,7 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
 
                 <div className={styles.content}>
                     <Sidebar className={styles.desktopOnly} />
-                    <div className={styles.horizontalTabs}>
-                        <HorizontalTabs />
-                    </div>
+                    <HorizontalTabs className={styles.horizontalTabs} />
 
                     <div className={styles.mainWrapper}>
                         <main className={styles.main}>{children}</main>

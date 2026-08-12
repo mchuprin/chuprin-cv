@@ -1,5 +1,5 @@
 import styles from './TerminalSection.module.scss'
-import { ReactNode } from 'react'
+import type{ ReactNode } from 'react'
 
 interface TerminalSectionProps {
     text: string

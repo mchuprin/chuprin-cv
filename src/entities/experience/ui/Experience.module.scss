@@ -4,11 +4,14 @@
     gap: 1rem;
 }
 
+.job > *:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
 .cardHeader {
     display: flex;
     gap: 0.75rem;
     align-items: baseline;
-    margin-bottom: 0.2rem;
 }
 
 .role {
@@ -29,21 +32,16 @@
 }
 
 .company {
-    color: var(--foreground);
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .achievements {
     list-style: none;
     padding: 0;
-    margin: 0 0 0.5rem 0;
 }
 
 .achievement {
-    color: var(--foreground);
-    font-size: 0.8rem;
-    line-height: 1.6;
+    line-height: 1.5;
     padding-left: 1rem;
     position: relative;
 
@@ -56,8 +54,7 @@
 }
 
 .stack {
-    color: var(--muted-foreground);
-    font-size: 0.75rem;
+    line-height: 1.5;
 }
 
 .stackLabel {

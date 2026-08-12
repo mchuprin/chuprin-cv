@@ -4,6 +4,8 @@ export interface ExperienceItem {
     roleRu: string
     period: string
     periodRu: string
+    desc: string
+    descRu: string
     location: string
     locationRu: string
     achievements: string[]

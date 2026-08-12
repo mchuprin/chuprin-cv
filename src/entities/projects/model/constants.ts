@@ -6,9 +6,9 @@ export const PROJECTS: Project[] = [
         lang: 'Nuxt, TypeScript',
         year: 2026,
         desc: 'My terminal-themed developer portfolio built with Next.js, featuring cyberpunk UI and command-line interface.',
-        descRu: 'Мое личное. портфолио в стиле киберпанк терминала на Next.js.',
+        descRu: 'Мое портфолио в стиле киберпанк терминала на Next.js.',
         github: 'https://github.com/mchuprin/chuprin-cv',
-        demo: 'https://mchuprin.github.io/chuprin-cv/',
+        demo: null,
     },
     {
         name: 'minesweeper',

@@ -1,6 +1,5 @@
 @use '@_app/styles/panels' as *;
-
-// ── Tablet ──────────────────────────────────────────────────────────────────
+@use '@_app/styles/variables' as *;
 
 .tabsTablet {
     @include panel(bottom);
@@ -15,11 +14,9 @@
     }
 }
 
-// ── Mobile ──────────────────────────────────────────────────────────────────
-
 .tabsMobile {
     @include panel(top);
-    display: flex;
+    display: none;
     flex-shrink: 0;
     padding-bottom: env(safe-area-inset-bottom, 0px);
 }
@@ -49,6 +46,10 @@
     }
 }
 
+.navlink {
+    flex: 1;
+}
+
 .icon {
     font-size: 1.1rem;
     line-height: 1;
@@ -59,28 +60,22 @@
     letter-spacing: 0.08em;
 }
 
-// ── Responsive ──────────────────────────────────────────────────────────────
-
-.tabletOnly {
-    display: none;
-}
-
-.mobileOnly {
-    display: none;
-}
-
-@media (max-width: 1023px) {
-    .tabletOnly {
+@include tablet {
+    .tabsTablet {
         display: flex;
+    }
+
+    .tabsMobile {
+        display: none;
     }
 }
 
-@media (max-width: 639px) {
-    .tabletOnly {
+@include mobile {
+    .tabsTablet {
         display: none;
     }
 
-    .mobileOnly {
+    .tabsMobile {
         display: flex;
     }
 }

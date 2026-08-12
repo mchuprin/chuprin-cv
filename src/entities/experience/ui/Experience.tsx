@@ -18,21 +18,38 @@ export const Experience = ({ className }: ExperienceProps) => {
                 <div className={styles.list}>
                     {EXPERIENCE_DATA.map((job) => (
                         <Card key={job.company}>
-                            <div className={styles.cardHeader}>
-                                <span className={styles.role}>{locale === 'en' ? job.role : job.roleRu}</span>
-                                <span className={styles.period}>{locale === 'en' ? job.period : job.periodRu}</span>
-                                <span className={styles.location}>{locale === 'en' ? job.location : job.locationRu}</span>
-                            </div>
-                            <div className={styles.company}>{job.company}</div>
-                            <ul className={styles.achievements}>
-                                {(locale === 'en' ? job.achievements : job.achievementsRu).map((achievement) => (
-                                    <li key={achievement} className={styles.achievement}>
-                                        {achievement}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className={styles.stack}>
-                                <span className={styles.stackLabel}>{STACK_LABEL[locale] || STACK_LABEL.en}:</span> {job.stack}
+                            <div className={styles.job}>
+                                <div className={styles.cardHeader}>
+                                    <span className={styles.role}>
+                                        {locale === 'en' ? job.role : job.roleRu}
+                                    </span>
+                                    <span className={styles.period}>
+                                        {locale === 'en' ? job.period : job.periodRu}
+                                    </span>
+                                    <span className={styles.location}>
+                                        {locale === 'en' ? job.location : job.locationRu}
+                                    </span>
+                                </div>
+                                <p className={classNames(styles.company, {}, ['t-value'])}>{job.company}</p>
+                                <p className='t-value'>
+                                    {locale === 'en' ? job.desc : job.descRu}
+                                </p>
+                                <ul className={styles.achievements}>
+                                    {(locale === 'en' ? job.achievements : job.achievementsRu).map(
+                                        (achievement) => (
+                                            <li key={achievement} className={classNames(styles.achievement, {}, ['t-value'])}>
+                                                {achievement}
+                                            </li>
+                                        )
+                                    )}
+                                </ul>
+
+                                <div className={classNames(styles.stack, {}, ['t-value'])}>
+                                    <span className={styles.stackLabel}>
+                                        {STACK_LABEL[locale] || STACK_LABEL.en}:
+                                    </span>{' '}
+                                    {job.stack}
+                                </div>
                             </div>
                         </Card>
                     ))}

@@ -1,3 +1,5 @@
+@use "@_app/styles/variables.scss" as *;
+
 .command {
     margin-bottom: 0.5rem;
 }
@@ -12,4 +14,10 @@
 
 .content {
     margin-left: 1.2rem;
+}
+
+@include tablet {
+    .command {
+        font-size: 0.9rem;
+    }
 }

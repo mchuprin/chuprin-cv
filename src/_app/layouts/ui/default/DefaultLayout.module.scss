@@ -48,9 +48,13 @@
 }
 
 .horizontalTabs {
+    display: none;
 }
 
 @include tablet {
+    .horizontalTabs {
+        display: block;
+    }
     .desktopOnly {
         display: none;
     }
