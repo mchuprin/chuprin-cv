@@ -1,0 +1,13 @@
+.prompt {
+    color: var(--primary);
+    font-weight: 700;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--primary) 50%, transparent);
+    font-size: 1rem;
+}
+
+.ascii-logo {
+    font-family: monospace;
+    white-space: pre;
+    user-select: none;
+    color: var(--primary);
+}

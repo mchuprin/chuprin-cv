@@ -1,0 +1,35 @@
+.viewport-glare {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: radial-gradient(
+        ellipse at 50% 50%,
+        rgba(0, 245, 255, 0.08) 0%,
+        rgba(0, 245, 255, 0.03) 40%,
+        transparent 70%
+    );
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 4px,
+        rgba(0, 0, 0, 0.14) 4px,
+        rgba(0, 0, 0, 0.14) 8px
+    );
+    animation: scanlines-jitter 0.15s steps(2) infinite;
+}
+
+@keyframes scanlines-jitter {
+    0%   { background-position: 0 0; opacity: 1; }
+    25%  { background-position: 0 3px; opacity: 0.85; }
+    50%  { background-position: 0 -1px; opacity: 0.95; }
+    75%  { background-position: 0 1px; opacity: 0.88; }
+    100% { background-position: 0 0; opacity: 1; }
+}
