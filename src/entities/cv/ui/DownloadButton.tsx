@@ -6,24 +6,25 @@ import { Files } from '../model/constants'
 import { type Locale } from '@_shared/model/types'
 
 interface DownloadButtonProps {
-    className?: string
+  className?: string
 }
 
 export const DownloadButton = ({ className }: DownloadButtonProps) => {
-    const t = useTranslations('resume')
-    const locale = useLocale() as Locale
+  const t = useTranslations('resume')
+  const locale = useLocale() as Locale
 
-    const handleDownload = () => {
-        const link = document.createElement('a')
-        link.href = `/cv/${Files[locale]}`
-        link.download = Files[locale]
-        link.click()
-        link.remove()
-    }
+  const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = `/cv/${Files[locale]}`
+    link.download = Files[locale]
+    link.click()
+    link.remove()
+    console.log(t)
+  }
 
-    return (
-        <Button variant="green" className={className} onClick={handleDownload}>
-            ↓ {t('button')}
-        </Button>
-    )
+  return (
+    <Button variant="green" className={className} onClick={handleDownload}>
+      ↓ {t('button')}
+    </Button>
+  )
 }

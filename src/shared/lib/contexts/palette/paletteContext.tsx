@@ -12,7 +12,7 @@ const PaletteContext = createContext<PaletteContextType>({
     isOpen: false,
     open: () => {},
     toggle: () => {},
-    close: () => {},
+    close: () => {}
 })
 
 export const PaletteProvider = ({ children }: { children: ReactNode }) => {

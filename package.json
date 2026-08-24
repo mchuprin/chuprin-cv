@@ -1,33 +1,33 @@
 {
-  "name": "cv-portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "lint:fsd": "npx steiger ./src"
-  },
-  "dependencies": {
-    "@types/react-redux": "^7.1.34",
-    "next": "16.2.10",
-    "next-intl": "^4.13.2",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "redux": "^5.0.1",
-    "sass": "^1.101.0"
-  },
-  "devDependencies": {
-    "@feature-sliced/steiger-plugin": "^0.6.0",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.10",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "3.9.4",
-    "steiger": "^0.5.13",
-    "typescript": "^5"
-  }
+    "name": "cv-portfolio",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint .",
+        "lint:fsd": "npx steiger ./src"
+    },
+    "dependencies": {
+        "@types/react-redux": "^7.1.34",
+        "next": "16.2.10",
+        "next-intl": "^4.13.2",
+        "react": "19.2.4",
+        "react-dom": "19.2.4",
+        "redux": "^5.0.1",
+        "sass": "^1.101.0"
+    },
+    "devDependencies": {
+        "@feature-sliced/steiger-plugin": "^0.6.0",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.2.10",
+        "eslint-config-prettier": "^10.1.8",
+        "prettier": "3.9.4",
+        "steiger": "^0.5.13",
+        "typescript": "^5"
+    }
 }
