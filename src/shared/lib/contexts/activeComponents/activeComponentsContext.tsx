@@ -1,6 +1,6 @@
 'use client'
 import { SectionKey } from '@_shared/model/types'
-import { commandPatterns, clearPattern } from '@_shared/model/constants'
+import { commandPatterns, clearPattern, SECTION_KEYS } from '@_shared/model/constants'
 import { createContext, ReactNode, useCallback, useContext, useRef, useState, useId } from 'react'
 import { useBreakpoint } from '@_shared/lib/hooks'
 
@@ -41,8 +41,12 @@ export function ActiveComponentsProvider({ children }: ActiveComponentsProviderP
     const counterRef = useRef(1)
     const generateId = useCallback(() => `${baseId}-${counterRef.current++}`, [baseId])
 
-    const [sections, setSections] = useState<Section[]>([])
-    const [lastSection, setLastSection] = useState<SectionKey | ''>('')
+    // Initial sections are part of the prerendered HTML, so the CV content is visible without JS
+    const [sections, setSections] = useState<Section[]>(() => [
+        { id: `${baseId}-${SECTION_KEYS.WHOAMI}`, name: SECTION_KEYS.WHOAMI },
+        { id: `${baseId}-${SECTION_KEYS.HELP}`, name: SECTION_KEYS.HELP }
+    ])
+    const [lastSection, setLastSection] = useState<SectionKey | ''>(SECTION_KEYS.WHOAMI)
 
     const { isDesktop } = useBreakpoint()
 

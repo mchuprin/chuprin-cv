@@ -3,7 +3,7 @@ import { Project } from './types'
 export const PROJECTS: Project[] = [
     {
         name: 'cv-portfolio',
-        lang: 'Nuxt, TypeScript',
+        lang: 'Next.js, TypeScript',
         year: 2026,
         desc: 'My terminal-themed developer portfolio built with Next.js, featuring cyberpunk UI and command-line interface.',
         descRu: 'Мое портфолио в стиле киберпанк терминала на Next.js.',

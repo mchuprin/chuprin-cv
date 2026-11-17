@@ -1,7 +1,8 @@
 import { DefaultLayout } from '@_app/layouts/ui/default/DefaultLayout'
 import { AppProviders } from '@_app/providers/AppProviders'
 import { getMessages, setRequestLocale } from 'next-intl/server'
-import { routing } from '@_shared/config/i18n/routing'
+import { routing, type Locale } from '@_shared/config/i18n/routing'
+import { OG_LOCALES, SITE_URL } from '@_shared/model/constants'
 
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
@@ -26,10 +27,33 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const messages = await getMessages({ locale });
+  const { title, description } = messages.meta;
+  const url = `/${locale}/`;
 
   return {
-    title: messages.meta.title,
-    description: messages.meta.description,
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        ...Object.fromEntries(routing.locales.map((l) => [l, `/${l}/`])),
+        "x-default": `/${routing.defaultLocale}/`,
+      },
+    },
+    openGraph: {
+      type: "profile",
+      locale: OG_LOCALES[locale as Locale],
+      url,
+      siteName: title,
+      title,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
